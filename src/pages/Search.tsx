@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -65,41 +65,43 @@ const Search = () => {
         {/* Results */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredMovies.map((movie) => (
-            <Card key={movie.id} className="bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 group">
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={movie.poster}
-                    alt={`Poster van ${movie.title} (${movie.year})`}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <Badge variant="secondary" className="bg-black/70 text-white">
-                      {movie.year}
-                    </Badge>
+            <Link key={movie.id} to={`/movie/${movie.id}`}>
+              <Card className="bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 group cursor-pointer">
+                <CardContent className="p-0">
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img
+                      src={movie.poster}
+                      alt={`Poster van ${movie.title} (${movie.year})`}
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <Badge variant="secondary" className="bg-black/70 text-white">
+                        {movie.year}
+                      </Badge>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="p-4">
-                  <h3 className="font-semibold text-lg mb-2 line-clamp-1">{movie.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2">Regisseur: {movie.director}</p>
                   
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <Star className="h-4 w-4 fill-primary text-primary mr-1" />
-                      <span className="text-sm font-medium">{movie.rating}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1">
-                      {movie.genre.slice(0, 2).map((genre) => (
-                        <Badge key={genre} variant="outline" className="text-xs">
-                          {genre}
-                        </Badge>
-                      ))}
+                  <div className="p-4">
+                    <h3 className="font-semibold text-lg mb-2 line-clamp-1">{movie.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2">Regisseur: {movie.director}</p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <Star className="h-4 w-4 fill-primary text-primary mr-1" />
+                        <span className="text-sm font-medium">{movie.rating}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {movie.genre.slice(0, 2).map((genre) => (
+                          <Badge key={genre} variant="outline" className="text-xs">
+                            {genre}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
