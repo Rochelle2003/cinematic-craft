@@ -43,8 +43,13 @@ const MovieDetail = () => {
               <CardContent className="p-0">
                 <img
                   src={movie.poster}
-                  alt={movie.title}
+                  alt={`Poster van ${movie.title} (${movie.year})`}
                   className="w-full h-auto object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = `https://via.placeholder.com/400x600/1a1a1a/FFD700?text=${encodeURIComponent(movie.title)}`;
+                  }}
                 />
               </CardContent>
             </Card>
@@ -128,8 +133,13 @@ const MovieDetail = () => {
                     <CardContent className="p-0">
                       <img
                         src={relatedMovie.poster}
-                        alt={relatedMovie.title}
+                        alt={`Poster van ${relatedMovie.title} (${relatedMovie.year})`}
                         className="w-full h-[200px] object-cover rounded-lg"
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://via.placeholder.com/200x300/1a1a1a/FFD700?text=${encodeURIComponent(relatedMovie.title)}`;
+                        }}
                       />
                       <div className="p-2">
                         <h3 className="font-medium text-sm group-hover:text-primary transition-colors duration-300">

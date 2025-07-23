@@ -1,3 +1,4 @@
+
 export interface Movie {
   id: number;
   title: string;
@@ -23,7 +24,7 @@ export const movies: Movie[] = [
     director: "Christopher Nolan",
     cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
     description: "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    poster: "https://images.unsplash.com/photo-1518930259200-8b1ee70e1f4c?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
   },
   {
     id: 2,
@@ -35,7 +36,7 @@ export const movies: Movie[] = [
     director: "Quentin Tarantino",
     cast: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
     description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-    poster: "https://images.unsplash.com/photo-1478720568477-b346f6eff992?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
   },
   {
     id: 3,
@@ -47,7 +48,7 @@ export const movies: Movie[] = [
     director: "Francis Ford Coppola",
     cast: ["Marlon Brando", "Al Pacino", "James Caan"],
     description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-    poster: "https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
   },
   {
     id: 4,
@@ -59,7 +60,7 @@ export const movies: Movie[] = [
     director: "Christopher Nolan",
     cast: ["Leonardo DiCaprio", "Marion Cotillard", "Tom Hardy"],
     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-    poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
   },
   {
     id: 5,
@@ -71,7 +72,7 @@ export const movies: Movie[] = [
     director: "Christopher Nolan",
     cast: ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
     description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-    poster: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
   },
   {
     id: 6,
@@ -83,7 +84,7 @@ export const movies: Movie[] = [
     director: "The Wachowskis",
     cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
     description: "A computer programmer is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.",
-    poster: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
   },
   {
     id: 7,
@@ -95,7 +96,7 @@ export const movies: Movie[] = [
     director: "Martin Scorsese",
     cast: ["Robert De Niro", "Ray Liotta", "Joe Pesci"],
     description: "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.",
-    poster: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg"
   },
   {
     id: 8,
@@ -107,7 +108,7 @@ export const movies: Movie[] = [
     director: "Robert Zemeckis",
     cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
     description: "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate and other historical events unfold from the perspective of an Alabama man with an IQ of 75.",
-    poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg"
   },
   {
     id: 9,
@@ -119,7 +120,7 @@ export const movies: Movie[] = [
     director: "Frank Darabont",
     cast: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
     description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
   },
   {
     id: 10,
@@ -131,7 +132,7 @@ export const movies: Movie[] = [
     director: "Steven Spielberg",
     cast: ["Liam Neeson", "Ben Kingsley", "Ralph Fiennes"],
     description: "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-    poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg"
   },
   {
     id: 11,
@@ -143,7 +144,7 @@ export const movies: Movie[] = [
     director: "David Fincher",
     cast: ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
     description: "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
-    poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg"
   },
   {
     id: 12,
@@ -155,7 +156,7 @@ export const movies: Movie[] = [
     director: "Peter Jackson",
     cast: ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
     description: "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
-    poster: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
   },
   {
     id: 13,
@@ -167,7 +168,7 @@ export const movies: Movie[] = [
     director: "George Lucas",
     cast: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
     description: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station.",
-    poster: "https://images.unsplash.com/photo-1560148240-64135be13bf4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
   },
   {
     id: 14,
@@ -179,7 +180,7 @@ export const movies: Movie[] = [
     director: "Michael Curtiz",
     cast: ["Humphrey Bogart", "Ingrid Bergman", "Paul Henreid"],
     description: "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
-    poster: "https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/5K7cOHoay2mZusSLezBOY0Qxh8a.jpg"
   },
   {
     id: 15,
@@ -191,7 +192,7 @@ export const movies: Movie[] = [
     director: "Orson Welles",
     cast: ["Orson Welles", "Joseph Cotten", "Dorothy Comingore"],
     description: "Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final utterance; 'Rosebud'.",
-    poster: "https://images.unsplash.com/photo-1518930259200-8b1ee70e1f4c?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/sav0jxhqiH0bPr2vZFU0Kjt2nZt.jpg"
   },
   {
     id: 16,
@@ -203,7 +204,7 @@ export const movies: Movie[] = [
     director: "Martin Scorsese",
     cast: ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
     description: "An undercover cop and a police informant play a cat and mouse game with each other as they infiltrate an Irish gang in South Boston.",
-    poster: "https://images.unsplash.com/photo-1478720568477-b346f6eff992?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/nT97ifVT2J1yMQmeq20Qblg61T.jpg"
   },
   {
     id: 17,
@@ -215,7 +216,7 @@ export const movies: Movie[] = [
     director: "Ridley Scott",
     cast: ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
     description: "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
-    poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"
   },
   {
     id: 18,
@@ -227,7 +228,7 @@ export const movies: Movie[] = [
     director: "James Cameron",
     cast: ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
     description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
-    poster: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
   },
   {
     id: 19,
@@ -239,7 +240,7 @@ export const movies: Movie[] = [
     director: "Jonathan Demme",
     cast: ["Jodie Foster", "Anthony Hopkins", "Scott Glenn"],
     description: "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
-    poster: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/uS9m8OBk1A8eM9I042bx8XXpqAq.jpg"
   },
   {
     id: 20,
@@ -251,7 +252,7 @@ export const movies: Movie[] = [
     director: "Steven Spielberg",
     cast: ["Tom Hanks", "Matt Damon", "Tom Sizemore"],
     description: "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
-    poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg"
   },
   {
     id: 21,
@@ -263,7 +264,7 @@ export const movies: Movie[] = [
     director: "James Cameron",
     cast: ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
     description: "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-    poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg"
   },
   {
     id: 22,
@@ -275,7 +276,7 @@ export const movies: Movie[] = [
     director: "Joss Whedon",
     cast: ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
     description: "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-    poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
   },
   {
     id: 23,
@@ -287,7 +288,7 @@ export const movies: Movie[] = [
     director: "Quentin Tarantino",
     cast: ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio"],
     description: "With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in Mississippi.",
-    poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg"
   },
   {
     id: 24,
@@ -299,7 +300,7 @@ export const movies: Movie[] = [
     director: "Roger Allers",
     cast: ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"],
     description: "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
-    poster: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg"
   },
   {
     id: 25,
@@ -311,7 +312,7 @@ export const movies: Movie[] = [
     director: "James Cameron",
     cast: ["Arnold Schwarzenegger", "Linda Hamilton", "Edward Furlong"],
     description: "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her teenage son John Connor from a more advanced and powerful cyborg.",
-    poster: "https://images.unsplash.com/photo-1560148240-64135be13bf4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/5M0j0B18abtBI5gi2RhfjjurTqb.jpg"
   },
   {
     id: 26,
@@ -323,7 +324,7 @@ export const movies: Movie[] = [
     director: "Robert Zemeckis",
     cast: ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson"],
     description: "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
-    poster: "https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/fNOH9f1aA7XRTzl1sAOx9iF553Q.jpg"
   },
   {
     id: 27,
@@ -335,7 +336,7 @@ export const movies: Movie[] = [
     director: "Francis Ford Coppola",
     cast: ["Martin Sheen", "Marlon Brando", "Robert Duvall"],
     description: "A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.",
-    poster: "https://images.unsplash.com/photo-1518930259200-8b1ee70e1f4c?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/gQB8Y5RCMkv2zwzFHbUJX3kAhvA.jpg"
   },
   {
     id: 28,
@@ -347,7 +348,7 @@ export const movies: Movie[] = [
     director: "Ridley Scott",
     cast: ["Harrison Ford", "Rutger Hauer", "Sean Young"],
     description: "A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
-    poster: "https://images.unsplash.com/photo-1478720568477-b346f6eff992?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/63N9uy8nd9j7Eog2axPQ8lbr3Wj.jpg"
   },
   {
     id: 29,
@@ -359,7 +360,7 @@ export const movies: Movie[] = [
     director: "Joel Coen",
     cast: ["Jeff Bridges", "John Goodman", "Julianne Moore"],
     description: "Jeff 'The Dude' Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.",
-    poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/d4ftmWI4UczMUgWu7OVKVBsda8x.jpg"
   },
   {
     id: 30,
@@ -371,7 +372,7 @@ export const movies: Movie[] = [
     director: "Ridley Scott",
     cast: ["Sigourney Weaver", "Tom Skerritt", "John Hurt"],
     description: "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.",
-    poster: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
   },
   {
     id: 31,
@@ -383,7 +384,7 @@ export const movies: Movie[] = [
     director: "Stanley Kubrick",
     cast: ["Keir Dullea", "Gary Lockwood", "William Sylvester"],
     description: "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer H.A.L. 9000.",
-    poster: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg"
   },
   {
     id: 32,
@@ -395,7 +396,7 @@ export const movies: Movie[] = [
     director: "Martin Scorsese",
     cast: ["Robert De Niro", "Jodie Foster", "Cybill Shepherd"],
     description: "A mentally unstable veteran works as a nighttime taxi driver in New York City, where the perceived decadence and sleaze fuels his urge for violent action.",
-    poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/ekstpH614fwDX8DUln1a2Opz0N8.jpg"
   },
   {
     id: 33,
@@ -407,7 +408,7 @@ export const movies: Movie[] = [
     director: "Alfred Hitchcock",
     cast: ["James Stewart", "Kim Novak", "Barbara Bel Geddes"],
     description: "A former police detective juggles wrestling with his personal demons and becoming obsessed with a hauntingly beautiful woman.",
-    poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/15uOEfqBNTVnDiU9LAmKPDe6YMp.jpg"
   },
   {
     id: 34,
@@ -419,7 +420,7 @@ export const movies: Movie[] = [
     director: "Alfred Hitchcock",
     cast: ["Anthony Perkins", "Janet Leigh", "Vera Miles"],
     description: "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.",
-    poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/yz4QVqPx3h1hD1DfqqQkCq3rmxW.jpg"
   },
   {
     id: 35,
@@ -431,7 +432,7 @@ export const movies: Movie[] = [
     director: "Gene Kelly",
     cast: ["Gene Kelly", "Donald O'Connor", "Debbie Reynolds"],
     description: "A silent film production company and cast make a difficult transition to sound when they are forced to leave silent films behind.",
-    poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/w03EiJVHP8Un77XFJVhs16yNjiN.jpg"
   },
   {
     id: 36,
@@ -443,7 +444,7 @@ export const movies: Movie[] = [
     director: "Victor Fleming",
     cast: ["Judy Garland", "Frank Morgan", "Ray Bolger"],
     description: "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home.",
-    poster: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/39bhm1bHiMKDCWaUZnvxZCsOsR0.jpg"
   },
   {
     id: 37,
@@ -455,7 +456,7 @@ export const movies: Movie[] = [
     director: "Alfred Hitchcock",
     cast: ["Cary Grant", "Eva Marie Saint", "James Mason"],
     description: "A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies, and falls for a federal agent who is investigating the spy ring.",
-    poster: "https://images.unsplash.com/photo-1560148240-64135be13bf4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/viC1C1LFmrRQQxLZsKWFNdGpSBk.jpg"
   },
   {
     id: 38,
@@ -467,7 +468,7 @@ export const movies: Movie[] = [
     director: "David Lean",
     cast: ["Peter O'Toole", "Alec Guinness", "Anthony Quinn"],
     description: "The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.",
-    poster: "https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/AiAm0EtDvyGqNSAFaW2hPWkHCLA.jpg"
   },
   {
     id: 39,
@@ -479,7 +480,7 @@ export const movies: Movie[] = [
     director: "Billy Wilder",
     cast: ["Marilyn Monroe", "Tony Curtis", "Jack Lemmon"],
     description: "After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in.",
-    poster: "https://images.unsplash.com/photo-1518930259200-8b1ee70e1f4c?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/nNWJJxRmN6rPJoLJVOpQBjv7JKq.jpg"
   },
   {
     id: 40,
@@ -491,7 +492,7 @@ export const movies: Movie[] = [
     director: "Billy Wilder",
     cast: ["William Holden", "Gloria Swanson", "Erich von Stroheim"],
     description: "A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.",
-    poster: "https://images.unsplash.com/photo-1478720568477-b346f6eff992?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/5fOTTdTfmPDHkzXfm0jNdKfMPrj.jpg"
   },
   {
     id: 41,
@@ -503,7 +504,7 @@ export const movies: Movie[] = [
     director: "Stanley Kubrick",
     cast: ["Peter Sellers", "George C. Scott", "Sterling Hayden"],
     description: "An insane general triggers a path to nuclear holocaust that a War Room full of politicians and generals frantically tries to stop.",
-    poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/o3zG3zU5gITUkI8yQ6YlAw1IFIc.jpg"
   },
   {
     id: 42,
@@ -515,7 +516,7 @@ export const movies: Movie[] = [
     director: "John Huston",
     cast: ["Humphrey Bogart", "Walter Huston", "Tim Holt"],
     description: "Two Americans searching for work in Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains.",
-    poster: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/1hgNrzWRHvzQKblWOmLxgBXIUjY.jpg"
   },
   {
     id: 43,
@@ -527,7 +528,7 @@ export const movies: Movie[] = [
     director: "John Huston",
     cast: ["Humphrey Bogart", "Mary Astor", "Gladys George"],
     description: "A private detective takes on a case that involves him with three eccentric criminals, a gorgeous liar, and their quest for a priceless statuette.",
-    poster: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/8hgV0qYdOKKemBnQXlZ2Lc5ZRR0.jpg"
   },
   {
     id: 44,
@@ -539,7 +540,7 @@ export const movies: Movie[] = [
     director: "Martin Scorsese",
     cast: ["Robert De Niro", "Cathy Moriarty", "Joe Pesci"],
     description: "The life of boxer Jake LaMotta, whose violence and temper that led him to the top in the ring destroyed his life outside of it.",
-    poster: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/vkjNBRDGdZNPFRjAOPvQXSJNrJc.jpg"
   },
   {
     id: 45,
@@ -551,7 +552,7 @@ export const movies: Movie[] = [
     director: "Steven Spielberg",
     cast: ["Henry Thomas", "Drew Barrymore", "Peter Coyote"],
     description: "A troubled child summons the courage to help a friendly alien escape Earth and return to his home world.",
-    poster: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/an0nD6uq6ToeCRCRFWGnTSj9BYe.jpg"
   },
   {
     id: 46,
@@ -563,7 +564,7 @@ export const movies: Movie[] = [
     director: "Billy Wilder",
     cast: ["Jack Lemmon", "Shirley MacLaine", "Fred MacMurray"],
     description: "A Manhattan insurance clerk tries to rise in his company by letting its executives use his apartment for trysts, but complications arise when he falls for an elevator operator.",
-    poster: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/aTVHrTdHM1vJhELCzBHmWyJcPKp.jpg"
   },
   {
     id: 47,
@@ -575,7 +576,7 @@ export const movies: Movie[] = [
     director: "Roman Polanski",
     cast: ["Jack Nicholson", "Faye Dunaway", "John Huston"],
     description: "A private detective hired to expose an adulterer in 1930s Los Angeles finds himself caught up in a web of deceit, corruption, and murder.",
-    poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/sNe6oQCzVZSxqTzjXWMlJTLLmgI.jpg"
   },
   {
     id: 48,
@@ -587,7 +588,7 @@ export const movies: Movie[] = [
     director: "Carol Reed",
     cast: ["Joseph Cotten", "Alida Valli", "Orson Welles"],
     description: "Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.",
-    poster: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/8pnKvpFhEKKQHCLvUdTfnVHj4L5.jpg"
   },
   {
     id: 49,
@@ -599,7 +600,7 @@ export const movies: Movie[] = [
     director: "Robert Mulligan",
     cast: ["Gregory Peck", "John Megna", "Frank Overton"],
     description: "Atticus Finch, a lawyer in the Depression-era South, defends a black man against an undeserved rape charge, and his children against prejudice.",
-    poster: "https://images.unsplash.com/photo-1560148240-64135be13bf4?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/b6J2kGZRsRIJxGUJgLnS3PXZ5VN.jpg"
   },
   {
     id: 50,
@@ -611,6 +612,6 @@ export const movies: Movie[] = [
     director: "Billy Wilder",
     cast: ["Fred MacMurray", "Barbara Stanwyck", "Edward G. Robinson"],
     description: "An insurance representative is seduced by a dissatisfied housewife into a scheme of insurance fraud and murder that arouses the suspicion of his colleague, a claims investigator.",
-    poster: "https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=400&h=600&fit=crop"
+    poster: "https://image.tmdb.org/t/p/w500/6gVKnwMbBzKHMzJFhWNRJhZcq2E.jpg"
   }
 ];

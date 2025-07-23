@@ -72,8 +72,13 @@ const Movies = () => {
                   <div className="relative overflow-hidden rounded-t-lg">
                     <img
                       src={movie.poster}
-                      alt={movie.title}
+                      alt={`Poster van ${movie.title} (${movie.year})`}
                       className="w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = `https://via.placeholder.com/400x600/1a1a1a/FFD700?text=${encodeURIComponent(movie.title)}`;
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-2 right-2">
