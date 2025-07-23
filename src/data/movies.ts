@@ -24,7 +24,9 @@ export const movies: Movie[] = [
     director: "Christopher Nolan",
     cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
     description: "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+    poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    // YouTube trailer ID for The Dark Knight
+    trailer: "EXeTwQWrcwY"
   },
   {
     id: 2,
@@ -36,7 +38,9 @@ export const movies: Movie[] = [
     director: "Quentin Tarantino",
     cast: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
     description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-    poster: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+    poster: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+    // YouTube trailer ID for Pulp Fiction
+    trailer: "s7EdQ4FqbhY"
   },
   {
     id: 3,
@@ -48,7 +52,9 @@ export const movies: Movie[] = [
     director: "Francis Ford Coppola",
     cast: ["Marlon Brando", "Al Pacino", "James Caan"],
     description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-    poster: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+    poster: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    // YouTube trailer ID for The Godfather
+    trailer: "sY1S34973zA"
   },
   {
     id: 4,
@@ -60,7 +66,9 @@ export const movies: Movie[] = [
     director: "Christopher Nolan",
     cast: ["Leonardo DiCaprio", "Marion Cotillard", "Tom Hardy"],
     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-    poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
+    poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
+    // YouTube trailer ID for Inception
+    trailer: "YoHD9XEInc0"
   },
   {
     id: 5,

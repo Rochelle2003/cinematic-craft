@@ -6,10 +6,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Calendar, Clock, Heart, Play, ArrowLeft } from "lucide-react";
 import { movies } from "@/data/movies";
+import { useState } from "react";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const movie = movies.find(m => m.id === parseInt(id || "0"));
+  // State for trailer modal
+  const [showTrailer, setShowTrailer] = useState(false);
 
   if (!movie) {
     return (
@@ -85,10 +88,13 @@ const MovieDetail = () => {
             </div>
 
             <div className="flex gap-4 mb-8">
-              <Button size="lg" className="flex-1 sm:flex-none">
-                <Play className="h-5 w-5 mr-2" />
-                Trailer Bekijken
-              </Button>
+              {/* Only show trailer button if trailer exists */}
+              {movie.trailer && (
+                <Button size="lg" className="flex-1 sm:flex-none" onClick={() => setShowTrailer(true)}>
+                  <Play className="h-5 w-5 mr-2" />
+                  Trailer Bekijken
+                </Button>
+              )}
               <Button variant="outline" size="lg">
                 <Heart className="h-5 w-5 mr-2" />
                 Favorieten
@@ -155,6 +161,29 @@ const MovieDetail = () => {
       </main>
 
       <Footer />
+      {/* Trailer Modal */}
+      {showTrailer && movie.trailer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
+          <div className="relative w-full max-w-3xl mx-auto p-4">
+            <button
+              className="absolute top-2 right-2 text-white bg-black/60 rounded-full p-2 hover:bg-primary transition"
+              onClick={() => setShowTrailer(false)}
+              aria-label="Sluiten"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div className="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden shadow-2xl">
+              <iframe
+                src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1&rel=0`}
+                title={`Trailer van ${movie.title}`}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                className="w-full h-96 rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

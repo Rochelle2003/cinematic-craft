@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,62 +7,83 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Star, User, Calendar } from "lucide-react";
+import { supabase } from "@/lib/supabaseClient";
+
+const LOCAL_STORAGE_KEY = "cinevault_reviews";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([
-    {
-      id: 1,
-      user: "FilmLover23",
-      movie: "The Dark Knight",
-      rating: 5,
-      comment: "Een meesterwerk van Christopher Nolan. Heath Ledger's Joker is onvergetelijk.",
-      date: "2024-01-15"
-    },
-    {
-      id: 2,
-      user: "CinemaFan",
-      movie: "Pulp Fiction",
-      rating: 4,
-      comment: "Tarantino op zijn best. Geweldige dialogen en een unieke verhaalstructuur.",
-      date: "2024-01-10"
-    },
-    {
-      id: 3,
-      user: "MovieCritic",
-      movie: "The Godfather",
-      rating: 5,
-      comment: "De definitie van een perfecte film. Elke scène is cinematische poëzie.",
-      date: "2024-01-05"
-    }
-  ]);
-
+  // Auth state
+  const [user, setUser] = useState<any>(null);
+  // Reviews state
+  const [reviews, setReviews] = useState<any[]>([]);
   const [newReview, setNewReview] = useState({
     movie: "",
     rating: 5,
     comment: ""
   });
 
+  // Load user from Supabase
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user || null);
+    });
+    // Load reviews from localStorage
+    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (stored) {
+      setReviews(JSON.parse(stored));
+    } else {
+      // Demo reviews if none in storage
+      setReviews([
+        {
+          id: 1,
+          user: "FilmLover23",
+          movie: "The Dark Knight",
+          rating: 5,
+          comment: "Een meesterwerk van Christopher Nolan. Heath Ledger's Joker is onvergetelijk.",
+          date: "2024-01-15"
+        },
+        {
+          id: 2,
+          user: "CinemaFan",
+          movie: "Pulp Fiction",
+          rating: 4,
+          comment: "Tarantino op zijn best. Geweldige dialogen en een unieke verhaalstructuur.",
+          date: "2024-01-10"
+        },
+        {
+          id: 3,
+          user: "MovieCritic",
+          movie: "The Godfather",
+          rating: 5,
+          comment: "De definitie van een perfecte film. Elke scène is cinematische poëzie.",
+          date: "2024-01-05"
+        }
+      ]);
+    }
+  }, []);
+
+  // Save reviews to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(reviews));
+  }, [reviews]);
+
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!newReview.movie || !newReview.comment) {
       return;
     }
-
+    // Use logged-in user's name/email if available
+    const reviewUser = user?.user_metadata?.name || user?.email || "Gast";
     // Create new review with current date
     const review = {
-      id: reviews.length + 1,
-      user: "Guest User", // In real app, this would be the logged-in user
+      id: Date.now(),
+      user: reviewUser,
       movie: newReview.movie,
       rating: newReview.rating,
       comment: newReview.comment,
       date: new Date().toISOString().split('T')[0]
     };
-
-    // Add to reviews list
     setReviews([review, ...reviews]);
-    
-    // Reset form
     setNewReview({ movie: "", rating: 5, comment: "" });
   };
 
