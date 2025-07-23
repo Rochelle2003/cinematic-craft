@@ -175,8 +175,8 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Adres</p>
                     <p className="text-muted-foreground text-sm">
+                      Professor Goossenslaan 1<br />
                       Fontys Hogeschool ICT<br />
-                      Campus Rachelsmolen<br />
                       Tilburg
                     </p>
                   </div>

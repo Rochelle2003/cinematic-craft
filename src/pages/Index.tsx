@@ -31,57 +31,42 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
+      {/* Hero Section with Cinematic Video Banner */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1489599543913-8378ec86e2df?w=1920&h=1080&fit=crop')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        {/* Video background */}
+        <div className="absolute inset-0 z-0">
+          <iframe
+            src="https://www.youtube.com/embed/04Mz4Vidues?autoplay=1&mute=1&controls=0&loop=1&playlist=04Mz4Vidues&modestbranding=1&showinfo=0&rel=0"
+            title="Cinematic Banner"
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            className="w-full h-full object-cover aspect-video"
+            style={{ minHeight: '100%', minWidth: '100%' }}
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        {/* Content overlay */}
+        <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center min-h-[90vh]">
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
-              <Film className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium">Premium Cinema Experience</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
               Welkom bij{" "}
-              <span className="bg-gradient-gold bg-clip-text text-transparent">
-                CineVault
-              </span>
+              <span className="bg-gradient-gold bg-clip-text text-transparent">CineVault</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto drop-shadow">
               Ontdek duizenden premium films, lees reviews en deel jouw cinematische passie met onze gemeenschap
             </p>
-            
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} className="max-w-md mx-auto mb-8">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-              <Input
-                placeholder="Zoek films, genres, regisseurs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 h-12 bg-card/50 backdrop-blur border-border text-lg"
-              />
-            </div>
-          </form>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/movies">
                 <Button size="xl" className="group">
-                  <Play className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                   Ontdek Films
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link to="/reviews">
                 <Button variant="hero" size="xl">
-                  <Star className="h-5 w-5 mr-2" />
                   Lees Reviews
                 </Button>
               </Link>
