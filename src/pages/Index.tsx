@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,14 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Play, Star, Search, TrendingUp, Award, Users, Film, ArrowRight } from "lucide-react";
 import { movies } from "@/data/movies";
+
+// List of YouTube video IDs for the hero banner
+const HERO_VIDEOS = [
+  "hYzQrfaP1ZI", // Example: Movie 1
+  "lFzVJEksoDY", // Example: Movie 2
+  "m8e-FF8MsqU", // The Matrix
+  "qvsgGtivCgs"  // Back to the Future
+];
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,6 +27,13 @@ const Index = () => {
     .slice(0, 8);
 
   const trendingMovies = movies.slice(0, 6);
+
+  // Randomly select a video ID on each page load
+  const [heroVideo, setHeroVideo] = useState(HERO_VIDEOS[0]);
+  useEffect(() => {
+    const random = Math.floor(Math.random() * HERO_VIDEOS.length);
+    setHeroVideo(HERO_VIDEOS[random]);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +51,7 @@ const Index = () => {
         {/* Video background */}
         <div className="absolute inset-0 z-0">
           <iframe
-            src="https://www.youtube.com/embed/04Mz4Vidues?autoplay=1&mute=1&controls=0&loop=1&playlist=04Mz4Vidues&modestbranding=1&showinfo=0&rel=0"
+            src={`https://www.youtube.com/embed/${heroVideo}?autoplay=1&mute=1&controls=0&loop=1&playlist=${heroVideo}&modestbranding=1&showinfo=0&rel=0`}
             title="Cinematic Banner"
             allow="autoplay; encrypted-media"
             allowFullScreen={false}
