@@ -89,11 +89,13 @@ const MovieDetail = () => {
 
             <div className="flex gap-4 mb-8">
               {/* Only show trailer button if trailer exists */}
-              {movie.trailer && (
+              {movie.trailer ? (
                 <Button size="lg" className="flex-1 sm:flex-none" onClick={() => setShowTrailer(true)}>
                   <Play className="h-5 w-5 mr-2" />
                   Trailer Bekijken
                 </Button>
+              ) : (
+                <p className="text-muted-foreground italic flex-1 flex items-center">Geen trailer beschikbaar voor deze film.</p>
               )}
               <Button variant="outline" size="lg">
                 <Heart className="h-5 w-5 mr-2" />
