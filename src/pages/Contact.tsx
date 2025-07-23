@@ -17,16 +17,43 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    toast({
-      title: "Bericht verzonden!",
-      description: "We nemen zo snel mogelijk contact met je op.",
-    });
-    
-    setForm({ name: "", email: "", subject: "", message: "" });
+    try {
+      // Send to Formspree (replace YOUR_FORM_ID with actual form ID)
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          _replyto: form.email,
+          _subject: `Contact: ${form.subject}`,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Bericht verzonden!",
+          description: "Je bericht is succesvol verzonden naar rochellemannie2003@outlook.com",
+        });
+        
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Fout bij verzenden",
+        description: "Er is iets misgegaan. Probeer het later opnieuw.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -127,7 +154,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground text-sm">contact@cinevault.nl</p>
+                    <p className="text-muted-foreground text-sm">rochellemannie2003@outlook.com</p>
                   </div>
                 </div>
                 
@@ -148,8 +175,9 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Adres</p>
                     <p className="text-muted-foreground text-sm">
-                      Filmstraat 123<br />
-                      1000 AB Amsterdam
+                      Fontys Hogeschool ICT<br />
+                      Campus Rachelsmolen<br />
+                      Tilburg
                     </p>
                   </div>
                 </div>

@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Menu, X, Film, Search, User } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -15,6 +18,21 @@ export const Navbar = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
+
+  const handleSearchIconClick = () => {
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
 
   return (
     <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border sticky top-0 z-50">
@@ -49,9 +67,26 @@ export const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost" size="sm">
-              <Search className="h-4 w-4" />
-            </Button>
+            <form onSubmit={handleSearch} className="flex">
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Zoek films..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-48 bg-background border-border pr-10"
+                />
+                <Button 
+                  type="button"
+                  variant="ghost" 
+                  size="sm" 
+                  className="absolute right-0 top-0 h-full"
+                  onClick={handleSearchIconClick}
+                >
+                  <Search className="h-4 w-4" />
+                </Button>
+              </div>
+            </form>
             <Link to="/account">
               <Button variant="ghost" size="sm">
                 <User className="h-4 w-4" />

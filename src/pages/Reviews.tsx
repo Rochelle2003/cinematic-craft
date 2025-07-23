@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Star, User, Calendar } from "lucide-react";
 
 const Reviews = () => {
-  const [reviews] = useState([
+  const [reviews, setReviews] = useState([
     {
       id: 1,
       user: "FilmLover23",
@@ -44,8 +44,25 @@ const Reviews = () => {
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically save the review
-    console.log("New review submitted:", newReview);
+    
+    if (!newReview.movie || !newReview.comment) {
+      return;
+    }
+
+    // Create new review with current date
+    const review = {
+      id: reviews.length + 1,
+      user: "Guest User", // In real app, this would be the logged-in user
+      movie: newReview.movie,
+      rating: newReview.rating,
+      comment: newReview.comment,
+      date: new Date().toISOString().split('T')[0]
+    };
+
+    // Add to reviews list
+    setReviews([review, ...reviews]);
+    
+    // Reset form
     setNewReview({ movie: "", rating: 5, comment: "" });
   };
 

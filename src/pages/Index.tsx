@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,22 @@ import { Play, Star, Search, TrendingUp, Award, Users, Film, ArrowRight } from "
 import { movies } from "@/data/movies";
 
 const Index = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  
   // Featured movies (highest rated)
   const featuredMovies = movies
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 8);
 
   const trendingMovies = movies.slice(0, 6);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -47,16 +58,18 @@ const Index = () => {
               Ontdek duizenden premium films, lees reviews en deel jouw cinematische passie met onze gemeenschap
             </p>
             
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto mb-8">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-                <Input
-                  placeholder="Zoek films, genres, regisseurs..."
-                  className="pl-10 h-12 bg-card/50 backdrop-blur border-border text-lg"
-                />
-              </div>
+          {/* Search Bar */}
+          <form onSubmit={handleSearch} className="max-w-md mx-auto mb-8">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+              <Input
+                placeholder="Zoek films, genres, regisseurs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 h-12 bg-card/50 backdrop-blur border-border text-lg"
+              />
             </div>
+          </form>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/movies">
