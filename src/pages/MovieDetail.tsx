@@ -115,10 +115,10 @@ const MovieDetail = () => {
               </div>
             </div>
 
-            <div className="flex gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {/* Only show trailer button if trailer exists */}
               {movie.trailer ? (
-                <Button size="lg" className="flex-1 sm:flex-none" onClick={() => setShowTrailer(true)}>
+                <Button size="lg" className="flex-1" onClick={() => setShowTrailer(true)}>
                   <Play className="h-5 w-5 mr-2" />
                   Trailer Bekijken
                 </Button>
@@ -130,6 +130,7 @@ const MovieDetail = () => {
               <Button 
                 variant={isInWatchlist ? "default" : "outline"} 
                 size="lg"
+                className="flex-1"
                 onClick={() => {
                   try {
                     const currentWatchlist = localStorage.getItem('cinevault_watchlist');
@@ -165,6 +166,7 @@ const MovieDetail = () => {
               <Button 
                 variant={isWatched ? "default" : "outline"} 
                 size="lg"
+                className="flex-1"
                 onClick={() => {
                   try {
                     const currentWatched = localStorage.getItem('cinevault_watched');
@@ -293,23 +295,25 @@ const MovieDetail = () => {
       <Footer />
       {/* Trailer Modal */}
       {showTrailer && movie.trailer && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-          <div className="relative w-full max-w-3xl mx-auto p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="relative w-full max-w-4xl mx-auto">
             <button
-              className="absolute top-2 right-2 text-white bg-black/60 rounded-full p-2 hover:bg-primary transition"
+              className="absolute top-2 right-2 text-white bg-black/60 rounded-full p-2 hover:bg-primary transition z-10"
               onClick={() => setShowTrailer(false)}
               aria-label="Sluiten"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <div className="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden shadow-2xl">
-              <iframe
-                src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1&rel=0`}
-                title={`Trailer van ${movie.title}`}
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                className="w-full h-96 rounded-lg"
-              />
+            <div className="bg-black rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${movie.trailer}?autoplay=1&rel=0`}
+                  title={`Trailer van ${movie.title}`}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                />
+              </div>
             </div>
           </div>
         </div>
