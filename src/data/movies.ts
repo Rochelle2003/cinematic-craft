@@ -489,16 +489,17 @@ export const movies: Movie[] = [
   },
   {
     id: 37,
-    title: "The Shawshank Redemption",
-    year: 1994,
-    genre: ["Drama"],
-    rating: 9.3,
-    duration: 142,
-    director: "Frank Darabont",
-    cast: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
-    description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    poster: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
-    trailer: "6hB3S9bIaco"
+    title: "La La Land",
+    year: 2016,
+    genre: ["Comedy", "Drama", "Musical"],
+    rating: 8.0,
+    duration: 128,
+    director: "Damien Chazelle",
+    cast: ["Ryan Gosling", "Emma Stone", "John Legend"],
+    description: "A jazz pianist falls for an aspiring actress in Los Angeles.",
+    poster: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
+    trailer: "0pdqf4P9MB8",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
   },
   {
     id: 38,

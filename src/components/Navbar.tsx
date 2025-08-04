@@ -13,6 +13,8 @@ export const Navbar = () => {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Films", href: "/movies" },
+    { name: "Aanbevelingen", href: "/recommendations" },
+    { name: "Watchlist", href: "/watchlist" },
     { name: "Reviews", href: "/reviews" },
     { name: "Contact", href: "/contact" },
   ];

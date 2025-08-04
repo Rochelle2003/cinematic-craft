@@ -4,15 +4,43 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Calendar, Clock, Heart, Play, ArrowLeft, Tv } from "lucide-react";
+import { Star, Calendar, Clock, Heart, Play, ArrowLeft, Tv, Bookmark, CheckCircle } from "lucide-react";
 import { movies } from "@/data/movies";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const movie = movies.find(m => m.id === parseInt(id || "0"));
   // State for trailer modal
   const [showTrailer, setShowTrailer] = useState(false);
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [isWatched, setIsWatched] = useState(false);
+
+  // Check if movie is in watchlist or watched
+  useEffect(() => {
+    if (movie) {
+      try {
+        const watchlistData = localStorage.getItem('cinevault_watchlist');
+        const watchedData = localStorage.getItem('cinevault_watched');
+        
+        const watchlist = watchlistData ? JSON.parse(watchlistData) : [];
+        const watched = watchedData ? JSON.parse(watchedData) : [];
+        
+        setIsInWatchlist(watchlist.some((m: any) => m.id === movie.id));
+        setIsWatched(watched.some((m: any) => m.id === movie.id));
+        
+        console.log('Movie status checked:', {
+          title: movie.title,
+          inWatchlist: watchlist.some((m: any) => m.id === movie.id),
+          isWatched: watched.some((m: any) => m.id === movie.id)
+        });
+      } catch (error) {
+        console.error('Error checking movie status:', error);
+        setIsInWatchlist(false);
+        setIsWatched(false);
+      }
+    }
+  }, [movie]);
 
   if (!movie) {
     return (
@@ -97,9 +125,85 @@ const MovieDetail = () => {
               ) : (
                 <p className="text-muted-foreground italic flex-1 flex items-center">Geen trailer beschikbaar voor deze film.</p>
               )}
-              <Button variant="outline" size="lg">
-                <Heart className="h-5 w-5 mr-2" />
-                Favorieten
+              
+              {/* Watchlist Button */}
+              <Button 
+                variant={isInWatchlist ? "default" : "outline"} 
+                size="lg"
+                onClick={() => {
+                  try {
+                    const currentWatchlist = localStorage.getItem('cinevault_watchlist');
+                    const watchlist = currentWatchlist ? JSON.parse(currentWatchlist) : [];
+                    
+                    if (isInWatchlist) {
+                      // Remove from watchlist
+                      const newWatchlist = watchlist.filter((m: any) => m.id !== movie.id);
+                      localStorage.setItem('cinevault_watchlist', JSON.stringify(newWatchlist));
+                      setIsInWatchlist(false);
+                      console.log('Removed from watchlist:', movie.title);
+                    } else {
+                      // Add to watchlist
+                      const movieToAdd = {
+                        ...movie,
+                        addedAt: new Date().toISOString()
+                      };
+                      const newWatchlist = [...watchlist, movieToAdd];
+                      localStorage.setItem('cinevault_watchlist', JSON.stringify(newWatchlist));
+                      setIsInWatchlist(true);
+                      console.log('Added to watchlist:', movie.title);
+                    }
+                  } catch (error) {
+                    console.error('Error updating watchlist:', error);
+                  }
+                }}
+              >
+                <Bookmark className="h-5 w-5 mr-2" />
+                {isInWatchlist ? "Verwijderen" : "Watchlist"}
+              </Button>
+
+              {/* Mark as Watched Button */}
+              <Button 
+                variant={isWatched ? "default" : "outline"} 
+                size="lg"
+                onClick={() => {
+                  try {
+                    const currentWatched = localStorage.getItem('cinevault_watched');
+                    const currentWatchlist = localStorage.getItem('cinevault_watchlist');
+                    const watched = currentWatched ? JSON.parse(currentWatched) : [];
+                    const watchlist = currentWatchlist ? JSON.parse(currentWatchlist) : [];
+                    
+                    if (isWatched) {
+                      // Remove from watched
+                      const newWatched = watched.filter((m: any) => m.id !== movie.id);
+                      localStorage.setItem('cinevault_watched', JSON.stringify(newWatched));
+                      setIsWatched(false);
+                      console.log('Removed from watched:', movie.title);
+                    } else {
+                      // Add to watched
+                      const movieToAdd = {
+                        ...movie,
+                        watchedAt: new Date().toISOString()
+                      };
+                      const newWatched = [...watched, movieToAdd];
+                      localStorage.setItem('cinevault_watched', JSON.stringify(newWatched));
+                      setIsWatched(true);
+                      console.log('Added to watched:', movie.title);
+                      
+                      // Remove from watchlist if it was there
+                      if (isInWatchlist) {
+                        const newWatchlist = watchlist.filter((m: any) => m.id !== movie.id);
+                        localStorage.setItem('cinevault_watchlist', JSON.stringify(newWatchlist));
+                        setIsInWatchlist(false);
+                        console.log('Removed from watchlist (marked as watched):', movie.title);
+                      }
+                    }
+                  } catch (error) {
+                    console.error('Error updating watched list:', error);
+                  }
+                }}
+              >
+                <CheckCircle className="h-5 w-5 mr-2" />
+                {isWatched ? "Bekeken" : "Bekeken"}
               </Button>
             </div>
 
