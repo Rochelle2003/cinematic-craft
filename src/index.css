@@ -15,8 +15,8 @@ All colors MUST be HSL.
     --card-foreground: 210 40% 98%;
     --popover: 210 25% 11%;
     --popover-foreground: 210 40% 98%;
-    /* Gouden accent voor premium feel */
-    --primary: 43 96% 56%;
+    /* Film oranje accent voor cinema feel */
+    --primary: 15 85% 55%;
     --primary-foreground: 210 25% 8%;
     --secondary: 210 25% 16%;
     --secondary-foreground: 210 40% 98%;
@@ -28,15 +28,15 @@ All colors MUST be HSL.
     --destructive-foreground: 210 40% 98%;
     --border: 210 25% 18%;
     --input: 210 25% 16%;
-    --ring: 43 96% 56%;
+    --ring: 15 85% 55%;
     --radius: 0.75rem;
     /* Cinematische gradients */
     --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%), hsl(210 25% 12%));
     --gradient-card: linear-gradient(145deg, hsl(210 25% 11%), hsl(210 25% 14%));
-    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 92% 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(15 85% 55%), hsl(20 90% 50%));
     /* Shadows voor diepte */
     --shadow-elegant: 0 25px 50px -12px hsl(210 25% 4% / 0.5);
-    --shadow-glow: 0 0 40px hsl(43 96% 56% / 0.15);
+    --shadow-glow: 0 0 40px hsl(15 85% 55% / 0.15);
     --shadow-card: 0 10px 30px -10px hsl(210 25% 4% / 0.3);
     /* Animaties */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

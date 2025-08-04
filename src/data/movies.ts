@@ -40,7 +40,8 @@ export const movies: Movie[] = [
     cast: ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
     description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
     poster: "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
-    trailer: "s7EdQ4FqbhY"
+    trailer: "s7EdQ4FqbhY",
+    streamingPlatforms: ["Netflix", "Hulu", "Amazon Prime"]
   },
   {
     id: 3,
@@ -53,7 +54,8 @@ export const movies: Movie[] = [
     cast: ["Marlon Brando", "Al Pacino", "James Caan"],
     description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
     poster: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
-    trailer: "sY1S34973zA"
+    trailer: "sY1S34973zA",
+    streamingPlatforms: ["Paramount+", "Amazon Prime", "Apple TV+"]
   },
   {
     id: 4,
@@ -66,7 +68,8 @@ export const movies: Movie[] = [
     cast: ["Leonardo DiCaprio", "Marion Cotillard", "Tom Hardy"],
     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
     poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
-    trailer: "YoHD9XEInc0"
+    trailer: "YoHD9XEInc0",
+    streamingPlatforms: ["Netflix", "HBO Max", "Amazon Prime"]
   },
   {
     id: 5,

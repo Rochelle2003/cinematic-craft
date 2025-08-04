@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Calendar, Clock, Heart, Play, ArrowLeft } from "lucide-react";
+import { Star, Calendar, Clock, Heart, Play, ArrowLeft, Tv } from "lucide-react";
 import { movies } from "@/data/movies";
 import { useState } from "react";
 
@@ -123,6 +123,30 @@ const MovieDetail = () => {
                     <p className="text-muted-foreground">{movie.cast.join(", ")}</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Streaming Platforms */}
+              <div>
+                <h2 className="text-2xl font-semibold mb-3 flex items-center">
+                  <Tv className="h-6 w-6 mr-2 text-primary" />
+                  Streaming Platforms
+                </h2>
+                {movie.streamingPlatforms && movie.streamingPlatforms.length > 0 ? (
+                  <div className="flex flex-wrap gap-3">
+                    {movie.streamingPlatforms.map((platform) => (
+                      <Badge 
+                        key={platform} 
+                        className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors cursor-pointer"
+                      >
+                        {platform}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground italic">
+                    Streaming informatie is momenteel niet beschikbaar voor deze film.
+                  </p>
+                )}
               </div>
             </div>
           </div>
