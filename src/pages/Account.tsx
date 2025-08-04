@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { User, Heart, Star, Mail, Lock, Edit } from "lucide-react";
+import { User, Heart, Star, Mail, Lock, Edit, Camera, Upload } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 
 const Account = () => {
@@ -21,6 +21,10 @@ const Account = () => {
     password: "",
     name: ""
   });
+
+  // Profile photo state
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Fetch user on mount and on auth state change
   useEffect(() => {
@@ -47,11 +51,25 @@ const Account = () => {
     e.preventDefault();
     setError(null);
     setLoading(true);
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: form.email,
-      password: form.password,
-    });
-    if (error) setError(error.message);
+    
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: form.email,
+        password: form.password,
+      });
+      
+      if (error) {
+        setError(error.message);
+        console.error('Login error:', error);
+      } else {
+        console.log('Login successful:', data);
+        setError(null);
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      setError('Inloggen mislukt. Probeer het opnieuw.');
+    }
+    
     setLoading(false);
   };
 
@@ -60,12 +78,26 @@ const Account = () => {
     e.preventDefault();
     setError(null);
     setLoading(true);
-    const { data, error } = await supabase.auth.signUp({
-      email: form.email,
-      password: form.password,
-      options: { data: { name: form.name } },
-    });
-    if (error) setError(error.message);
+    
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.password,
+        options: { data: { name: form.name } },
+      });
+      
+      if (error) {
+        setError(error.message);
+        console.error('Registration error:', error);
+      } else {
+        console.log('Registration successful:', data);
+        setError(null);
+      }
+    } catch (error) {
+      console.error('Registration failed:', error);
+      setError('Registratie mislukt. Probeer het opnieuw.');
+    }
+    
     setLoading(false);
   };
 
@@ -75,6 +107,50 @@ const Account = () => {
     await supabase.auth.signOut();
     setUser(null);
     setLoading(false);
+  };
+
+  // Handle profile photo upload
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        alert('Alleen afbeeldingen zijn toegestaan!');
+        return;
+      }
+      
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Bestand is te groot! Maximum 5MB.');
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setProfilePhoto(result);
+        // Save to localStorage for persistence
+        localStorage.setItem('cinevault_profile_photo', result);
+        console.log('Profile photo updated successfully');
+      };
+      reader.onerror = () => {
+        alert('Fout bij het lezen van het bestand');
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Load profile photo from localStorage
+  useEffect(() => {
+    const savedPhoto = localStorage.getItem('cinevault_profile_photo');
+    if (savedPhoto) {
+      setProfilePhoto(savedPhoto);
+      console.log('Profile photo loaded from localStorage');
+    }
+  }, []);
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
   };
 
   if (loading) {
@@ -181,16 +257,43 @@ const Account = () => {
           <Card className="bg-gradient-card border-border mb-8">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-gradient-gold flex items-center justify-center">
-                  <User className="h-10 w-10 text-primary-foreground" />
+                {/* Profile Photo */}
+                <div className="relative">
+                  <div className="w-20 h-20 rounded-full overflow-hidden bg-gradient-gold flex items-center justify-center">
+                    {profilePhoto ? (
+                      <img 
+                        src={profilePhoto} 
+                        alt="Profile" 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <User className="h-10 w-10 text-primary-foreground" />
+                    )}
+                  </div>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={triggerFileInput}
+                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full p-0 bg-background border-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Camera className="h-4 w-4 text-primary" />
+                  </Button>
+                  {/* Hidden file input */}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoUpload}
+                    className="hidden"
+                  />
                 </div>
                 <div className="flex-1">
                   <h1 className="text-2xl font-bold mb-2">{user.user_metadata?.name || user.email}</h1>
                   <p className="text-muted-foreground mb-4">{user.email}</p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" disabled>
-                      <Edit className="h-4 w-4 mr-2" />
-                      Profiel Bewerken
+                    <Button size="sm" variant="outline" onClick={triggerFileInput}>
+                      <Upload className="h-4 w-4 mr-2" />
+                      Foto Wijzigen
                     </Button>
                     <Button size="sm" variant="outline" onClick={handleLogout}>
                       <Lock className="h-4 w-4 mr-2" />

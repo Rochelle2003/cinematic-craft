@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Play, Star, Search, TrendingUp, Award, Users, Film, ArrowRight } from "lucide-react";
+import { Play, Star, Search, TrendingUp, Award, Users, Film, ArrowRight, Volume2, VolumeX } from "lucide-react";
 import { movies } from "@/data/movies";
+import CinematicIntro from "@/components/CinematicIntro";
 
 // List of YouTube video IDs for the hero banner
 const HERO_VIDEOS = [
@@ -20,6 +21,9 @@ const HERO_VIDEOS = [
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
+  const [showIntro, setShowIntro] = useState(false);
   
   // Featured movies (highest rated)
   const featuredMovies = movies
@@ -35,6 +39,47 @@ const Index = () => {
     setHeroVideo(HERO_VIDEOS[random]);
   }, []);
 
+  // Show cinematic intro on first visit
+  useEffect(() => {
+    const hasVisited = localStorage.getItem('cinevault_has_visited');
+    // For testing, always show intro (remove this line later)
+    setShowIntro(true);
+    localStorage.setItem('cinevault_has_visited', 'true');
+  }, []);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
+  const toggleAudio = () => {
+    // For now, just show a message since we're using Web Audio API
+    if (isAudioPlaying) {
+      setIsAudioPlaying(false);
+    } else {
+      // Play a simple tone when user clicks the audio button
+      try {
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+        
+        setIsAudioPlaying(true);
+        setTimeout(() => setIsAudioPlaying(false), 500);
+      } catch (error) {
+        console.log('Audio not supported');
+      }
+    }
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -44,6 +89,9 @@ const Index = () => {
   
   return (
     <div className="min-h-screen bg-background">
+      {/* Cinematic Intro */}
+      {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
+      
       <Navbar />
       
       {/* Hero Section with Cinematic Video Banner */}
@@ -63,6 +111,16 @@ const Index = () => {
         </div>
         {/* Content overlay */}
         <div className="relative z-10 container mx-auto px-4 text-center flex flex-col items-center justify-center min-h-[90vh]">
+          {/* Audio control button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleAudio}
+            className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white border border-white/20"
+          >
+            {isAudioPlaying ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+          </Button>
+          
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
               <span className="text-sm font-medium">Premium Cinema Experience</span>
