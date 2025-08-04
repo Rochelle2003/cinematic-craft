@@ -1,12 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { User, Heart, Star, Mail, Lock, Edit, Camera, Upload } from "lucide-react";
-import { supabase } from "@/lib/supabaseClient";
+import { User, Heart, Star, Mail, Lock, Edit, RefreshCw } from "lucide-react";
+import { supabase, mockAuth } from "@/lib/supabaseClient";
 
 const Account = () => {
   // Auth state
@@ -14,6 +14,9 @@ const Account = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showRegister, setShowRegister] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<string>("Testing connection...");
+  const [testResult, setTestResult] = useState<string>("");
+  const [useMockAuth, setUseMockAuth] = useState(false);
 
   // Login/Register form state
   const [form, setForm] = useState({
@@ -22,24 +25,76 @@ const Account = () => {
     name: ""
   });
 
-  // Profile photo state
-  const [profilePhoto, setProfilePhoto] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  // Test Supabase connection manually
+  const testConnection = async () => {
+    setTestResult("Testing...");
+    try {
+      console.log("Manual connection test...");
+      const { data, error } = await supabase.auth.getSession();
+      if (error) {
+        console.error("Manual test error:", error);
+        setTestResult(`Error: ${error.message}`);
+        setUseMockAuth(true);
+      } else {
+        console.log("Manual test successful:", data);
+        setTestResult("Connection successful!");
+        setUseMockAuth(false);
+      }
+    } catch (err) {
+      console.error("Manual test failed:", err);
+      setTestResult(`Failed: ${(err as Error).message}`);
+      setUseMockAuth(true);
+    }
+  };
+
+  // Test Supabase connection
+  useEffect(() => {
+    const testConnection = async () => {
+      try {
+        console.log("Testing Supabase connection...");
+        const { data, error } = await supabase.auth.getSession();
+        if (error) {
+          console.error("Supabase connection error:", error);
+          setConnectionStatus("Connection failed: " + error.message);
+          setUseMockAuth(true);
+        } else {
+          console.log("Supabase connection successful");
+          setConnectionStatus("Connected to Supabase");
+          setUseMockAuth(false);
+        }
+      } catch (err) {
+        console.error("Connection test failed:", err);
+        setConnectionStatus("Connection failed: " + (err as Error).message);
+        setUseMockAuth(true);
+      }
+    };
+    
+    testConnection();
+  }, []);
 
   // Fetch user on mount and on auth state change
   useEffect(() => {
-    const session = supabase.auth.getSession().then(({ data }) => {
-      setUser(data.session?.user || null);
-      setLoading(false);
-    });
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user || null);
-      setLoading(false);
-    });
-    return () => {
-      listener.subscription.unsubscribe();
-    };
-  }, []);
+    if (useMockAuth) {
+      // Use mock auth
+      const session = mockAuth.getSession().then(({ data }) => {
+        setUser(data.session?.user || null);
+        setLoading(false);
+      });
+    } else {
+      // Use real Supabase
+      const session = supabase.auth.getSession().then(({ data }) => {
+        setUser(data.session?.user || null);
+        setLoading(false);
+      });
+      const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user || null);
+        setLoading(false);
+      });
+      return () => {
+        listener.subscription.unsubscribe();
+      };
+    }
+  }, [useMockAuth]);
 
   // Handle input changes
   const handleInputChange = (field: string, value: string) => {
@@ -52,22 +107,78 @@ const Account = () => {
     setError(null);
     setLoading(true);
     
+    console.log("Attempting login with email:", form.email);
+    
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: form.email,
-        password: form.password,
-      });
-      
-      if (error) {
-        setError(error.message);
-        console.error('Login error:', error);
+      let result;
+      if (useMockAuth) {
+        result = await mockAuth.signInWithPassword({
+          email: form.email,
+          password: form.password,
+        });
       } else {
-        console.log('Login successful:', data);
+        result = await supabase.auth.signInWithPassword({
+          email: form.email,
+          password: form.password,
+        });
+      }
+      
+      if (result.error) {
+        console.error('Login error:', result.error);
+        // Check if it's a network error and switch to mock mode
+        if (result.error.message.includes('Failed to fetch') || result.error.message.includes('NetworkError')) {
+          setUseMockAuth(true);
+          setError('Netwerk probleem gedetecteerd. Overschakelen naar offline mode...');
+          // Retry with mock auth
+          setTimeout(async () => {
+            const mockResult = await mockAuth.signInWithPassword({
+              email: form.email,
+              password: form.password,
+            });
+            if (mockResult.error) {
+              setError(`Login error: ${mockResult.error.message}`);
+            } else {
+              setUser(mockResult.data.user);
+              setForm({ email: "", password: "", name: "" });
+            }
+            setLoading(false);
+          }, 1000);
+          return;
+        }
+        setError(`Login error: ${result.error.message}`);
+      } else {
+        console.log('Login successful:', result.data);
         setError(null);
+        setForm({ email: "", password: "", name: "" });
+        setUser(result.data.user);
       }
     } catch (error) {
       console.error('Login failed:', error);
-      setError('Inloggen mislukt. Probeer het opnieuw.');
+      const errorMessage = (error as Error).message;
+      if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
+        setUseMockAuth(true);
+        setError('Netwerk probleem gedetecteerd. Overschakelen naar offline mode...');
+        // Retry with mock auth
+        setTimeout(async () => {
+          try {
+            const mockResult = await mockAuth.signInWithPassword({
+              email: form.email,
+              password: form.password,
+            });
+            if (mockResult.error) {
+              setError(`Login error: ${mockResult.error.message}`);
+            } else {
+              setUser(mockResult.data.user);
+              setForm({ email: "", password: "", name: "" });
+            }
+          } catch (mockError) {
+            setError(`Mock login failed: ${(mockError as Error).message}`);
+          }
+          setLoading(false);
+        }, 1000);
+        return;
+      }
+      setError(`Login failed: ${errorMessage}`);
     }
     
     setLoading(false);
@@ -79,23 +190,89 @@ const Account = () => {
     setError(null);
     setLoading(true);
     
+    console.log("Attempting registration with email:", form.email);
+    
     try {
-      const { data, error } = await supabase.auth.signUp({
-        email: form.email,
-        password: form.password,
-        options: { data: { name: form.name } },
-      });
-      
-      if (error) {
-        setError(error.message);
-        console.error('Registration error:', error);
+      let result;
+      if (useMockAuth) {
+        result = await mockAuth.signUp({
+          email: form.email,
+          password: form.password,
+          options: { data: { name: form.name } },
+        });
       } else {
-        console.log('Registration successful:', data);
+        result = await supabase.auth.signUp({
+          email: form.email,
+          password: form.password,
+          options: { data: { name: form.name } },
+        });
+      }
+      
+      if (result.error) {
+        console.error('Registration error:', result.error);
+        // Check if it's a network error and switch to mock mode
+        if (result.error.message.includes('Failed to fetch') || result.error.message.includes('NetworkError')) {
+          setUseMockAuth(true);
+          setError('Netwerk probleem gedetecteerd. Overschakelen naar offline mode...');
+          // Retry with mock auth
+          setTimeout(async () => {
+            const mockResult = await mockAuth.signUp({
+              email: form.email,
+              password: form.password,
+              options: { data: { name: form.name } },
+            });
+            if (mockResult.error) {
+              setError(`Registration error: ${mockResult.error.message}`);
+            } else {
+              setUser(mockResult.data.user);
+              setForm({ email: "", password: "", name: "" });
+              alert("Registratie succesvol! (Offline mode)");
+            }
+            setLoading(false);
+          }, 1000);
+          return;
+        }
+        setError(`Registration error: ${result.error.message}`);
+      } else {
+        console.log('Registration successful:', result.data);
         setError(null);
+        setForm({ email: "", password: "", name: "" });
+        setUser(result.data.user);
+        if (useMockAuth) {
+          alert("Registratie succesvol! (Offline mode)");
+        } else {
+          alert("Registratie succesvol! Controleer je email voor verificatie.");
+        }
       }
     } catch (error) {
       console.error('Registration failed:', error);
-      setError('Registratie mislukt. Probeer het opnieuw.');
+      const errorMessage = (error as Error).message;
+      if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
+        setUseMockAuth(true);
+        setError('Netwerk probleem gedetecteerd. Overschakelen naar offline mode...');
+        // Retry with mock auth
+        setTimeout(async () => {
+          try {
+            const mockResult = await mockAuth.signUp({
+              email: form.email,
+              password: form.password,
+              options: { data: { name: form.name } },
+            });
+            if (mockResult.error) {
+              setError(`Registration error: ${mockResult.error.message}`);
+            } else {
+              setUser(mockResult.data.user);
+              setForm({ email: "", password: "", name: "" });
+              alert("Registratie succesvol! (Offline mode)");
+            }
+          } catch (mockError) {
+            setError(`Mock registration failed: ${(mockError as Error).message}`);
+          }
+          setLoading(false);
+        }, 1000);
+        return;
+      }
+      setError(`Registration failed: ${errorMessage}`);
     }
     
     setLoading(false);
@@ -104,62 +281,14 @@ const Account = () => {
   // Handle logout
   const handleLogout = async () => {
     setLoading(true);
-    await supabase.auth.signOut();
+    if (useMockAuth) {
+      await mockAuth.signOut();
+    } else {
+      await supabase.auth.signOut();
+    }
     setUser(null);
     setLoading(false);
   };
-
-  // Handle profile photo upload
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      // Validate file type
-      if (!file.type.startsWith('image/')) {
-        alert('Alleen afbeeldingen zijn toegestaan!');
-        return;
-      }
-      
-      // Validate file size (max 5MB)
-      if (file.size > 5 * 1024 * 1024) {
-        alert('Bestand is te groot! Maximum 5MB.');
-        return;
-      }
-      
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setProfilePhoto(result);
-        // Save to localStorage for persistence
-        localStorage.setItem('cinevault_profile_photo', result);
-        console.log('Profile photo updated successfully');
-      };
-      reader.onerror = () => {
-        alert('Fout bij het lezen van het bestand');
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  // Load profile photo from localStorage
-  useEffect(() => {
-    const savedPhoto = localStorage.getItem('cinevault_profile_photo');
-    if (savedPhoto) {
-      setProfilePhoto(savedPhoto);
-      console.log('Profile photo loaded from localStorage');
-    }
-  }, []);
-
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <span className="text-lg text-muted-foreground">Laden...</span>
-      </div>
-    );
-  }
 
   if (!user) {
     return (
@@ -167,6 +296,33 @@ const Account = () => {
         <Navbar />
         <main className="container mx-auto px-4 py-8">
           <div className="max-w-md mx-auto">
+            {/* Connection Status */}
+            <Card className="bg-gradient-card border-border mb-4">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      Status: {connectionStatus}
+                    </p>
+                    {useMockAuth && (
+                      <p className="text-xs text-orange-600 mt-1">
+                        🔄 Offline mode actief - Geen internetverbinding
+                      </p>
+                    )}
+                  </div>
+                  <Button onClick={testConnection} size="sm" variant="outline">
+                    <RefreshCw className="h-4 w-4 mr-2" />
+                    Test
+                  </Button>
+                </div>
+                {testResult && (
+                  <p className="text-xs mt-2 p-2 bg-gray-100 rounded">
+                    Test result: {testResult}
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+            
             <Card className="bg-gradient-card border-border">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center">
@@ -213,30 +369,23 @@ const Account = () => {
                       required
                     />
                   </div>
-                  {error && <div className="text-red-500 text-sm">{error}</div>}
+                  {error && (
+                    <div className="text-red-500 text-sm p-3 bg-red-50 border border-red-200 rounded">
+                      {error}
+                    </div>
+                  )}
                   <Button type="submit" className="w-full" size="lg" disabled={loading}>
                     <Mail className="h-4 w-4 mr-2" />
-                    {showRegister ? "Registreren" : "Inloggen"}
+                    {loading ? "Bezig..." : (showRegister ? "Registreren" : "Inloggen")}
                   </Button>
                 </form>
                 <div className="mt-6 text-center">
-                  <p className="text-muted-foreground text-sm">
-                    {showRegister ? (
-                      <>
-                        Al een account?{' '}
-                        <button className="text-primary hover:underline" onClick={() => setShowRegister(false)}>
-                          Log hier in
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        Nog geen account?{' '}
-                        <button className="text-primary hover:underline" onClick={() => setShowRegister(true)}>
-                          Registreer hier
-                        </button>
-                      </>
-                    )}
-                  </p>
+                  <button
+                    onClick={() => setShowRegister(!showRegister)}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {showRegister ? "Al een account? Log in" : "Nog geen account? Registreer"}
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -247,93 +396,98 @@ const Account = () => {
     );
   }
 
-  // Example user data (favorites, watchlist) can be fetched from Supabase in the future
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          {/* Profile Header */}
+          {/* User Profile Header */}
           <Card className="bg-gradient-card border-border mb-8">
-            <CardContent className="p-6">
-              <div className="flex items-center space-x-4">
-                {/* Profile Photo */}
-                <div className="relative">
-                  <div className="w-20 h-20 rounded-full overflow-hidden bg-gradient-gold flex items-center justify-center">
-                    {profilePhoto ? (
-                      <img 
-                        src={profilePhoto} 
-                        alt="Profile" 
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <User className="h-10 w-10 text-primary-foreground" />
-                    )}
-                  </div>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={triggerFileInput}
-                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full p-0 bg-background border-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    <Camera className="h-4 w-4 text-primary" />
-                  </Button>
-                  {/* Hidden file input */}
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handlePhotoUpload}
-                    className="hidden"
-                  />
+            <CardContent className="p-8">
+              <div className="flex items-center space-x-6">
+                <div className="w-20 h-20 rounded-full bg-gradient-gold flex items-center justify-center">
+                  <User className="h-10 w-10 text-primary-foreground" />
                 </div>
                 <div className="flex-1">
-                  <h1 className="text-2xl font-bold mb-2">{user.user_metadata?.name || user.email}</h1>
-                  <p className="text-muted-foreground mb-4">{user.email}</p>
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline" onClick={triggerFileInput}>
-                      <Upload className="h-4 w-4 mr-2" />
-                      Foto Wijzigen
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={handleLogout}>
-                      <Lock className="h-4 w-4 mr-2" />
-                      Uitloggen
-                    </Button>
+                  <h1 className="text-3xl font-bold mb-2">
+                    Welkom, {user.user_metadata?.name || user.email}
+                  </h1>
+                  <p className="text-muted-foreground mb-4">
+                    Beheer je account en voorkeuren
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <Badge variant="secondary" className="bg-background">
+                      <Mail className="h-3 w-3 mr-1" />
+                      {user.email}
+                    </Badge>
+                    <Badge variant="outline">
+                      <Lock className="h-3 w-3 mr-1" />
+                      Account actief
+                    </Badge>
+                    {useMockAuth && (
+                      <Badge variant="outline" className="bg-orange-100 text-orange-800">
+                        Mock Mode
+                      </Badge>
+                    )}
                   </div>
                 </div>
+                <Button onClick={handleLogout} variant="outline" disabled={loading}>
+                  <Edit className="h-4 w-4 mr-2" />
+                  Uitloggen
+                </Button>
               </div>
             </CardContent>
           </Card>
-          {/* Example favorites and watchlist UI (static for now) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          {/* Account Sections */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Account Information */}
             <Card className="bg-gradient-card border-border">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Heart className="h-5 w-5 mr-2 text-red-500" />
-                  Favoriete Films
+                  <User className="h-5 w-5 mr-2" />
+                  Account Informatie
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <p className="text-muted-foreground text-center py-4">
-                    (Favorieten kunnen later aan Supabase worden gekoppeld)
+              <CardContent className="space-y-4">
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Naam</label>
+                  <p className="text-lg">{user.user_metadata?.name || "Niet ingesteld"}</p>
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Email</label>
+                  <p className="text-lg">{user.email}</p>
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Account aangemaakt</label>
+                  <p className="text-lg">
+                    {new Date(user.created_at).toLocaleDateString('nl-NL')}
                   </p>
                 </div>
               </CardContent>
             </Card>
+
+            {/* Quick Actions */}
             <Card className="bg-gradient-card border-border">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Star className="h-5 w-5 mr-2 text-primary" />
-                  Watchlist
+                  <Heart className="h-5 w-5 mr-2" />
+                  Snelle Acties
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <p className="text-muted-foreground text-center py-4">
-                    (Watchlist kan later aan Supabase worden gekoppeld)
-                  </p>
-                </div>
+              <CardContent className="space-y-4">
+                <Button className="w-full justify-start" variant="outline">
+                  <Heart className="h-4 w-4 mr-2" />
+                  Mijn Favorieten
+                </Button>
+                <Button className="w-full justify-start" variant="outline">
+                  <Star className="h-4 w-4 mr-2" />
+                  Mijn Watchlist
+                </Button>
+                <Button className="w-full justify-start" variant="outline">
+                  <Edit className="h-4 w-4 mr-2" />
+                  Account Instellingen
+                </Button>
               </CardContent>
             </Card>
           </div>
