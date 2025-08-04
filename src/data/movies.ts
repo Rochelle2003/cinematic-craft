@@ -11,6 +11,7 @@ export interface Movie {
   description: string;
   poster: string;
   trailer?: string;
+  streamingPlatforms?: string[];
 }
 
 export const movies: Movie[] = [
@@ -25,7 +26,8 @@ export const movies: Movie[] = [
     cast: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
     description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
     poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    trailer: "EXeTwQWrcwY"
+    trailer: "EXeTwQWrcwY",
+    streamingPlatforms: ["Netflix", "HBO Max", "Amazon Prime"]
   },
   {
     id: 2,
@@ -480,7 +482,7 @@ export const movies: Movie[] = [
     cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
     description: "A pragmatic paleontologist visiting an almost complete theme park is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
     poster: "https://image.tmdb.org/t/p/w500/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
-    trailer: "lc0UehYemIQ"
+    trailer: "QWBKEmWWL38"
   },
   {
     id: 37,
