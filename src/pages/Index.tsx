@@ -39,16 +39,25 @@ const Index = () => {
     setHeroVideo(HERO_VIDEOS[random]);
   }, []);
 
-  // Show cinematic intro on first visit
+  // Show cinematic intro on first visit only
   useEffect(() => {
     const hasVisited = localStorage.getItem('cinevault_has_visited');
-    // For testing, always show intro (remove this line later)
-    setShowIntro(true);
-    localStorage.setItem('cinevault_has_visited', 'true');
+    if (!hasVisited) {
+      setShowIntro(true);
+      localStorage.setItem('cinevault_has_visited', 'true');
+    } else {
+      setShowIntro(false);
+    }
   }, []);
 
   const handleIntroComplete = () => {
     setShowIntro(false);
+  };
+
+  // Debug function to reset intro (for testing purposes)
+  const resetIntro = () => {
+    localStorage.removeItem('cinevault_has_visited');
+    setShowIntro(true);
   };
 
   const toggleAudio = () => {
@@ -91,6 +100,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Cinematic Intro */}
       {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
+      
+      {/* Debug button for development (only visible in dev mode) */}
+      {process.env.NODE_ENV === 'development' && (
+        <button
+          onClick={resetIntro}
+          className="fixed top-20 right-4 z-50 bg-red-500 text-white px-2 py-1 text-xs rounded"
+          title="Reset intro (dev only)"
+        >
+          Reset Intro
+        </button>
+      )}
       
       <Navbar />
       
