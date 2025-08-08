@@ -99,7 +99,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">contact@cinevault.nl</span>
+                <span className="text-muted-foreground">rochellemannie2003@outlook.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />
@@ -108,8 +108,9 @@ export const Footer = () => {
               <li className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />
                 <span className="text-muted-foreground">
-                  Filmstraat 123<br />
-                  1000 AB Amsterdam
+                  Professor Goossenslaan 1<br />
+                  Fontys Hogeschool ICT<br />
+                  Tilburg
                 </span>
               </li>
             </ul>

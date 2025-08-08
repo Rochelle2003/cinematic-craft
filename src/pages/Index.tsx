@@ -42,20 +42,31 @@ const Index = () => {
   // Show cinematic intro on first visit only
   useEffect(() => {
     const hasVisited = localStorage.getItem('cinevault_has_visited');
-    if (!hasVisited) {
+    console.log('Checking intro status:', { hasVisited, showIntro });
+    
+    // Temporary: Force show intro for testing (remove this later)
+    const forceShowIntro = true;
+    
+    if (!hasVisited || forceShowIntro) {
+      console.log('First visit detected, showing intro');
       setShowIntro(true);
-      localStorage.setItem('cinevault_has_visited', 'true');
+      if (!forceShowIntro) {
+        localStorage.setItem('cinevault_has_visited', 'true');
+      }
     } else {
+      console.log('Returning visitor, skipping intro');
       setShowIntro(false);
     }
   }, []);
 
   const handleIntroComplete = () => {
+    console.log('Intro completed');
     setShowIntro(false);
   };
 
   // Debug function to reset intro (for testing purposes)
   const resetIntro = () => {
+    console.log('Resetting intro');
     localStorage.removeItem('cinevault_has_visited');
     setShowIntro(true);
   };
