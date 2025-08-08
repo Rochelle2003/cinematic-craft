@@ -59,30 +59,82 @@ export const AddMovieForm = () => {
     }
 
     try {
-      // Hier zou je normaal de data naar een backend sturen
-      // Voor nu simuleren we een succesvolle submit
-      console.log("Movie suggestion submitted:", formData);
-      
-      toast({
-        title: "Bedankt!",
-        description: "Je filmvoorstel is succesvol ingediend. We zullen het bekijken!",
+      // Email de suggestie naar jouw email
+      const emailData = {
+        subject: `🎬 Nieuwe Film Suggestie: ${formData.title} (${formData.year})`,
+        message: `
+Nieuwe film suggestie ontvangen:
+
+📽️ Film: ${formData.title} (${formData.year})
+🎬 Regisseur: ${formData.director}
+🎭 Genre(s): ${formData.genre.join(", ")}
+📝 Beschrijving: ${formData.description || "Geen beschrijving opgegeven"}
+💭 Reden voor toevoeging: ${formData.reason}
+📧 Van gebruiker: ${formData.userEmail || "Anoniem"}
+
+---
+Verzonden via CineVault Film Suggestie Formulier (Floating Button)
+        `.trim(),
+        _replyto: formData.userEmail || "noreply@cinevault.com",
+        _subject: `🎬 Nieuwe Film Suggestie: ${formData.title}`,
+      };
+
+      // Test eerst met een eenvoudige request
+      console.log("Sending to Formspree:", {
+        name: formData.userEmail || "Anonieme gebruiker",
+        email: formData.userEmail || "noreply@cinevault.com",
+        subject: `🎬 Nieuwe Film Suggestie: ${formData.title} (${formData.year})`,
+        message: `Film: ${formData.title} (${formData.year}) - Regisseur: ${formData.director} - Genre: ${formData.genre.join(", ")} - Reden: ${formData.reason}`,
       });
 
-      // Reset form
-      setFormData({
-        title: "",
-        year: "",
-        director: "",
-        genre: [],
-        description: "",
-        reason: "",
-        userEmail: ""
+      // Probeer eerst een eenvoudige test
+      const testData = {
+        name: formData.userEmail || "Anonieme gebruiker",
+        email: formData.userEmail || "noreply@cinevault.com",
+        subject: `🎬 Nieuwe Film Suggestie: ${formData.title} (${formData.year})`,
+        message: `Film: ${formData.title} (${formData.year}) - Regisseur: ${formData.director} - Genre: ${formData.genre.join(", ")} - Reden: ${formData.reason}`,
+      };
+
+      console.log("Test data:", testData);
+
+      const response = await fetch('https://formspree.io/f/mjkopljp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(testData),
       });
-      setIsOpen(false);
+
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
+
+      if (response.ok) {
+        toast({
+          title: "Bedankt! 🎬",
+          description: "Je filmvoorstel is succesvol ingediend en naar ons verzonden!",
+        });
+
+        // Reset form
+        setFormData({
+          title: "",
+          year: "",
+          director: "",
+          genre: [],
+          description: "",
+          reason: "",
+          userEmail: ""
+        });
+        setIsOpen(false);
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Formspree error:", errorData);
+        throw new Error(`HTTP ${response.status}: ${errorData.error || 'Unknown error'}`);
+      }
     } catch (error) {
+      console.error("Error sending suggestion:", error);
       toast({
-        title: "Fout",
-        description: "Er is iets misgegaan. Probeer het opnieuw.",
+        title: "Fout bij verzenden",
+        description: `Er is iets misgegaan: ${error instanceof Error ? error.message : 'Onbekende fout'}`,
         variant: "destructive",
       });
     }

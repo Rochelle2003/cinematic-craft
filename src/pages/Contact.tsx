@@ -21,8 +21,8 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      // Send to Formspree (replace YOUR_FORM_ID with actual form ID)
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // Send to Formspree
+      const response = await fetch('https://formspree.io/f/mjkopljp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
