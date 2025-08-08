@@ -16,6 +16,7 @@ export const Navbar = () => {
     { name: "Aanbevelingen", href: "/recommendations" },
     { name: "Watchlist", href: "/watchlist" },
     { name: "Reviews", href: "/reviews" },
+    { name: "Film Voorstellen", href: "/suggest" },
     { name: "Contact", href: "/contact" },
   ];
 

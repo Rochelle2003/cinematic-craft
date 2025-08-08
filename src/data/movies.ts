@@ -250,7 +250,7 @@ export const movies: Movie[] = [
     director: "Roman Polanski",
     cast: ["Adrien Brody", "Thomas Kretschmann", "Frank Finlay"],
     description: "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgUGlhbmlzdAogICAgICA8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
     trailer: "BFwFq7qS-ss"
   },
   {
@@ -263,7 +263,7 @@ export const movies: Movie[] = [
     director: "Florian Henckel von Donnersmarck",
     cast: ["Ulrich Mühe", "Martina Gedeck", "Sebastian Koch"],
     description: "In 1984 East Berlin, an agent of the Secret Police, conducting surveillance on a writer and his lover, finds himself becoming increasingly absorbed by their lives.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgTGl2ZXMgb2YgT3RoZXJzCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "n3I6sBtrZDk"
   },
   {
@@ -276,7 +276,7 @@ export const movies: Movie[] = [
     director: "Charles Chaplin",
     cast: ["Charles Chaplin", "Paulette Goddard", "Jack Oakie"],
     description: "Dictator Adenoid Hynkel tries to expand his empire while a poor Jewish barber tries to avoid persecution from Hynkel's regime.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgR3JlYXQgRGljdGF0b3IKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
     trailer: "QMSxXH4tBUM"
   },
   {
@@ -289,7 +289,7 @@ export const movies: Movie[] = [
     director: "Charles Chaplin",
     cast: ["Charles Chaplin", "Edna Purviance", "Jackie Coogan"],
     description: "The Tramp cares for an abandoned child, but events put that relationship in jeopardy.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgS2lkCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "wD6eUaam_GI"
   },
   {
@@ -302,7 +302,7 @@ export const movies: Movie[] = [
     director: "Wes Anderson",
     cast: ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"],
     description: "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgR3JhbmQgQnVkYXBlc3QgSG90ZWwKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
     trailer: "1Fg5qjwGwqc"
   },
   {
@@ -315,7 +315,7 @@ export const movies: Movie[] = [
     director: "Thomas Vinterberg",
     cast: ["Mads Mikkelsen", "Thomas Bo Larsen", "Annika Wedderkopp"],
     description: "A teacher lives a lonely life, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgSHVudAogICAgICA8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
     trailer: "q0OjycZdaQc"
   },
   {
@@ -328,7 +328,7 @@ export const movies: Movie[] = [
     director: "Juan José Campanella",
     cast: ["Ricardo Darín", "Soledad Villamil", "Pablo Rago"],
     description: "A retired legal counselor writes a novel hoping to find closure for one of his past unresolved homicide cases and for his unreciprocated love with his superior - both of which still haunt him decades later.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgU2VjcmV0IGluIFRoZWlyIEV5ZXMKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
     trailer: "Ed3xciuM1zo"
   },
   {
@@ -341,7 +341,7 @@ export const movies: Movie[] = [
     director: "Olivier Nakache",
     cast: ["François Cluzet", "Omar Sy", "Anne Le Ny"],
     description: "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgSW50b3VjaGFibGVzCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "34WIbmXkewU"
   },
   {
@@ -524,7 +524,7 @@ export const movies: Movie[] = [
     director: "Joel Coen",
     cast: ["Jeff Bridges", "John Goodman", "Julianne Moore"],
     description: "Jeff 'The Dude' Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgQmlnIExlYm93c2tpCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "cd-go0oBF4Y"
   },
   {
@@ -576,7 +576,7 @@ export const movies: Movie[] = [
     director: "Alfred Hitchcock",
     cast: ["James Stewart", "Kim Novak", "Barbara Bel Geddes"],
     description: "A former police detective juggles wrestling with his personal demons and becoming obsessed with a hauntingly beautiful woman.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBWZXJ0aWdvCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "Z5jvQwwHQNY"
   },
   {
@@ -602,7 +602,7 @@ export const movies: Movie[] = [
     director: "Gene Kelly",
     cast: ["Gene Kelly", "Donald O'Connor", "Debbie Reynolds"],
     description: "A silent film production company and cast make a difficult transition to sound when they are forced to leave silent films behind.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBTaW5naW4nIGluIHRoZSBSYWluCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "D1ZYhVpdXbQ"
   },
   {
@@ -628,7 +628,7 @@ export const movies: Movie[] = [
     director: "Orson Welles",
     cast: ["Orson Welles", "Joseph Cotten", "Dorothy Comingore"],
     description: "Following the death of publishing tycoon Charles Foster Kane, reporters scramble to uncover the meaning of his final utterance; 'Rosebud'.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBDaXRpemVuIEthbmUKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
     trailer: "zyv19bg0scg"
   },
   {
@@ -654,7 +654,7 @@ export const movies: Movie[] = [
     director: "Victor Fleming",
     cast: ["Judy Garland", "Frank Morgan", "Ray Bolger"],
     description: "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgV2l6YXJkIG9mIE96CiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
     trailer: "H_3T4DGbM2E"
   },
   {
@@ -667,7 +667,261 @@ export const movies: Movie[] = [
     director: "Alfred Hitchcock",
     cast: ["Cary Grant", "Eva Marie Saint", "James Mason"],
     description: "A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies, and falls for a federal agent who is investigating the spy ring.",
-    poster: "/placeholder.svg",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBOb3J0aCBieSBOb3J0aHdlc3QKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
     trailer: "HRfmTpmIUwo"
+  },
+  {
+    id: 51,
+    title: "Spider-Man: Into the Spider-Verse",
+    year: 2018,
+    genre: ["Animation", "Action", "Adventure"],
+    rating: 8.4,
+    duration: 117,
+    director: "Bob Persichetti",
+    cast: ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"],
+    description: "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBTcGlkZXItTWFuOiBJbnRvIHRoZSBTcGlkZXItVmVyc2UKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
+    trailer: "g4Hbz2jLxvQ",
+    streamingPlatforms: ["Netflix", "Disney+", "Amazon Prime"]
+  },
+  {
+    id: 52,
+    title: "Parasite",
+    year: 2019,
+    genre: ["Comedy", "Drama", "Thriller"],
+    rating: 8.6,
+    duration: 132,
+    director: "Bong Joon-ho",
+    cast: ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong"],
+    description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    poster: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+    trailer: "5xH0HfJHsaY",
+    streamingPlatforms: ["Hulu", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 53,
+    title: "Joker",
+    year: 2019,
+    genre: ["Crime", "Drama", "Thriller"],
+    rating: 8.4,
+    duration: 122,
+    director: "Todd Phillips",
+    cast: ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
+    description: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime.",
+    poster: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+    trailer: "zAGVQLHvwOY",
+    streamingPlatforms: ["HBO Max", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 54,
+    title: "Avengers: Endgame",
+    year: 2019,
+    genre: ["Action", "Adventure", "Drama"],
+    rating: 8.4,
+    duration: 181,
+    director: "Anthony Russo",
+    cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
+    description: "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions.",
+    poster: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+    trailer: "TcMBFSGVi1c",
+    streamingPlatforms: ["Disney+", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 55,
+    title: "Black Panther",
+    year: 2018,
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    rating: 7.3,
+    duration: 134,
+    director: "Ryan Coogler",
+    cast: ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"],
+    description: "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBCbGFjayBQYW50aGVyCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "dxWvtMOmaCg",
+    streamingPlatforms: ["Disney+", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 56,
+    title: "Get Out",
+    year: 2017,
+    genre: ["Horror", "Mystery", "Thriller"],
+    rating: 7.7,
+    duration: 104,
+    director: "Jordan Peele",
+    cast: ["Daniel Kaluuya", "Allison Williams", "Bradley Whitford"],
+    description: "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBHZXQgT3V0CiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "DzfpyUB60YY",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 57,
+    title: "The Shape of Water",
+    year: 2017,
+    genre: ["Adventure", "Drama", "Fantasy"],
+    rating: 7.3,
+    duration: 123,
+    director: "Guillermo del Toro",
+    cast: ["Sally Hawkins", "Michael Shannon", "Richard Jenkins"],
+    description: "At a top secret research facility in the 1960s, a lonely janitor forms a unique relationship with an amphibious creature that is being held in captivity.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgU2hhcGUgb2YgV2F0ZXIKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
+    trailer: "XFYWazblaUA",
+    streamingPlatforms: ["Hulu", "Amazon Prime", "Apple TV+"]
+  },
+
+  {
+    id: 59,
+    title: "Mad Max: Fury Road",
+    year: 2015,
+    genre: ["Action", "Adventure", "Sci-Fi"],
+    rating: 8.1,
+    duration: 120,
+    director: "George Miller",
+    cast: ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
+    description: "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBNYWQgTWF4OiBGdXJ5IFJvYWQKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
+    trailer: "hA2ple9q4qnwxp3hKVNhroR2df",
+    streamingPlatforms: ["HBO Max", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 60,
+    title: "Birdman",
+    year: 2014,
+    genre: ["Comedy", "Drama"],
+    rating: 7.7,
+    duration: 119,
+    director: "Alejandro G. Iñárritu",
+    cast: ["Michael Keaton", "Emma Stone", "Edward Norton"],
+    description: "A washed-up superhero actor attempts to revive his fading career by writing, directing, and starring in a Broadway production.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBCaXJkbWFuCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "uJfLoE6hanc",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
+  },
+
+  {
+    id: 62,
+    title: "12 Years a Slave",
+    year: 2013,
+    genre: ["Biography", "Drama", "History"],
+    rating: 8.1,
+    duration: 134,
+    director: "Steve McQueen",
+    cast: ["Chiwetel Ejiofor", "Michael Kenneth Williams", "Michael Fassbender"],
+    description: "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICAxMiBZZWFycyBhIFNsYXZlCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "z02Ie8wKKRg",
+    streamingPlatforms: ["Hulu", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 63,
+    title: "Argo",
+    year: 2012,
+    genre: ["Biography", "Drama", "Thriller"],
+    rating: 7.7,
+    duration: 120,
+    director: "Ben Affleck",
+    cast: ["Ben Affleck", "Bryan Cranston", "John Goodman"],
+    description: "Acting under the cover of a Hollywood producer scouting a film location, a CIA agent launches a dangerous operation to rescue six Americans in Tehran during the U.S. hostage crisis.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBBcmdvCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "w918EhHf39g",
+    streamingPlatforms: ["HBO Max", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 64,
+    title: "The Artist",
+    year: 2011,
+    genre: ["Comedy", "Drama", "Romance"],
+    rating: 7.9,
+    duration: 100,
+    director: "Michel Hazanavicius",
+    cast: ["Jean Dujardin", "Bérénice Bejo", "John Goodman"],
+    description: "A silent movie star meets a young dancer, both find their careers in a downward spiral as the era of sound in motion pictures makes it difficult for them to accept the change.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgQXJ0aXN0CiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "O8K9AZcSQJE",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 65,
+    title: "The King's Speech",
+    year: 2010,
+    genre: ["Biography", "Drama", "History"],
+    rating: 8.0,
+    duration: 118,
+    director: "Tom Hooper",
+    cast: ["Colin Firth", "Geoffrey Rush", "Helena Bonham Carter"],
+    description: "The story of King George VI, his impromptu ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgS2luZydzIFNwZWVjaAogICAgICA8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+    trailer: "EcxBrTvt9fs",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 66,
+    title: "The Hurt Locker",
+    year: 2008,
+    genre: ["Drama", "Thriller", "War"],
+    rating: 7.6,
+    duration: 131,
+    director: "Kathryn Bigelow",
+    cast: ["Jeremy Renner", "Anthony Mackie", "Brian Geraghty"],
+    description: "During the Iraq War, a Sergeant recently assigned to an army bomb squad is put at odds with his squad mates due to his maverick way of handling his work.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBUaGUgSHVydCBMb2NrZXIKICAgICAgPC90ZXh0PgogICAgPC9zdmc+CiAg",
+    trailer: "2GxSDZc8eao",
+    streamingPlatforms: ["Hulu", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 67,
+    title: "Slumdog Millionaire",
+    year: 2008,
+    genre: ["Drama", "Romance"],
+    rating: 8.0,
+    duration: 120,
+    director: "Danny Boyle",
+    cast: ["Dev Patel", "Freida Pinto", "Saurabh Shukla"],
+    description: "A Mumbai teenager reflects on his upbringing in the slums when he is asked to appear on the Indian version of 'Who Wants To Be A Millionaire?'",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBTbHVtZG9nIE1pbGxpb25haXJlCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "AIzbwV7on6Q",
+    streamingPlatforms: ["Netflix", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 68,
+    title: "No Country for Old Men",
+    year: 2007,
+    genre: ["Crime", "Drama", "Thriller"],
+    rating: 8.1,
+    duration: 122,
+    director: "Joel Coen",
+    cast: ["Tommy Lee Jones", "Javier Bardem", "Josh Brolin"],
+    description: "Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBObyBDb3VudHJ5IGZvciBPbGQgTWVuCiAgICAgIDwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+    trailer: "YU6QoJ1hoM0",
+    streamingPlatforms: ["HBO Max", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 69,
+    title: "The Departed",
+    year: 2006,
+    genre: ["Crime", "Drama", "Thriller"],
+    rating: 8.5,
+    duration: 151,
+    director: "Martin Scorsese",
+    cast: ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
+    description: "An undercover cop and a police informant play a cat and mouse game with each other as they infiltrate an Irish gang in South Boston.",
+    poster: "https://image.tmdb.org/t/p/w500/nT97ifVT2J1yMQmeq20Qblg61T.jpg",
+    trailer: "iojhqm0JTW4",
+    streamingPlatforms: ["HBO Max", "Amazon Prime", "Apple TV+"]
+  },
+  {
+    id: 70,
+    title: "Crash",
+    year: 2004,
+    genre: ["Crime", "Drama", "Thriller"],
+    rating: 7.7,
+    duration: 112,
+    director: "Paul Haggis",
+    cast: ["Sandra Bullock", "Don Cheadle", "Matt Dillon"],
+    description: "Los Angeles citizens with vastly separate lives collide in interweaving stories of race, loss and redemption.",
+    poster: "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSI0MDAiIGhlaWdodD0iNjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzFhMWExYSIvPgogICAgICA8dGV4dCB4PSIyMDAiIHk9IjMwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjRkZENzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgICAgICBDcmFzaAogICAgICA8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+    trailer: "DVwmgW6JmHk",
+    streamingPlatforms: ["Hulu", "Amazon Prime", "Apple TV+"]
   }
 ];

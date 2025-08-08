@@ -56,3 +56,47 @@ export const getMoviePosterUrl = (movie: { title: string; year: number }): strin
   // In een productie-omgeving zou je dit asynchroon ophalen en cachen
   return `https://via.placeholder.com/400x600/1a1a1a/FFD700?text=${encodeURIComponent(movie.title)}`;
 };
+
+// Nieuwe functie om alle films te updaten met werkende poster URLs
+export const updateAllMoviePosters = async (movies: any[]): Promise<any[]> => {
+  const updatedMovies = [];
+  
+  for (const movie of movies) {
+    // Als de poster al een werkende TMDB URL is, behoud deze
+    if (movie.poster && movie.poster.includes('image.tmdb.org') && !movie.poster.includes('2W9HjAYtmdqFmhejK7792HmHauy')) {
+      updatedMovies.push(movie);
+      continue;
+    }
+    
+    // Probeer een nieuwe poster URL op te halen
+    try {
+      const posterUrl = await searchMovieByTitle(movie.title, movie.year);
+      if (posterUrl) {
+        updatedMovies.push({
+          ...movie,
+          poster: posterUrl
+        });
+        console.log(`✅ Updated poster for: ${movie.title}`);
+      } else {
+        // Fallback naar placeholder met filmtitel
+        updatedMovies.push({
+          ...movie,
+          poster: `https://via.placeholder.com/400x600/1a1a1a/FFD700?text=${encodeURIComponent(movie.title)}`
+        });
+        console.log(`⚠️ No poster found for: ${movie.title}, using placeholder`);
+      }
+    } catch (error) {
+      console.error(`❌ Error updating poster for ${movie.title}:`, error);
+      // Fallback naar placeholder
+      updatedMovies.push({
+        ...movie,
+        poster: `https://via.placeholder.com/400x600/1a1a1a/FFD700?text=${encodeURIComponent(movie.title)}`
+      });
+    }
+    
+    // Kleine vertraging om API rate limiting te voorkomen
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  
+  return updatedMovies;
+};

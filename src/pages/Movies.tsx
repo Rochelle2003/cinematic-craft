@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, Star } from "lucide-react";
 import { movies } from "@/data/movies";
+import { AddMovieForm } from "@/components/AddMovieForm";
 
 const Movies = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -114,6 +115,7 @@ const Movies = () => {
         )}
       </main>
 
+      <AddMovieForm />
       <Footer />
     </div>
   );
