@@ -1,242 +1,593 @@
-# 🎬 CineVault - Premium Film Experience
+# 🎬 Eigen Film - Premium Film Experience
 
-Een moderne, responsive film website gebouwd met React, TypeScript en Tailwind CSS. Ontdek duizenden films, beheer je watchlist en krijg persoonlijke aanbevelingen.
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4.1-purple.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.11-38B2AC.svg)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![CineVault](https://img.shields.io/badge/CineVault-Premium%20Film%20Experience-orange)
-![React](https://img.shields.io/badge/React-18.0.0-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0.0-38B2AC)
+A modern, responsive film website built with React, TypeScript, and Tailwind CSS. Discover thousands of movies, manage your watchlist, and get personalized recommendations in a beautiful cinematic interface.
+
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Demo](#-demo)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#-tech-stack)
+- [Configuration](#-configuration)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [Troubleshooting](#-troubleshooting)
+- [Changelog](#-changelog)
+- [License](#-license)
+- [Support](#-support)
 
 ## ✨ Features
 
-### 🎯 Core Functionaliteiten
-- **Film Database** - 50+ premium films met posters en trailers
-- **Persoonlijke Watchlist** - Sla films op om later te kijken
-- **Bekeken Films** - Houd bij welke films je al hebt gezien
-- **Slimme Aanbevelingen** - Ontdek nieuwe films op basis van je voorkeuren
-- **Streaming Info** - Zie direct waar films te kijken zijn
+### 🎯 Core Functionality
+- **Movie Database** - 50+ premium films with posters and trailers
+- **Personal Watchlist** - Save movies to watch later
+- **Watched Movies** - Track which movies you've already seen
+- **Smart Recommendations** - Discover new movies based on your preferences
+- **Streaming Information** - See directly where movies are available to watch
 
 ### 🎨 UI/UX Features
-- **Moderne Design** - Donkere cinematische thema met oranje accenten
-- **Responsive Layout** - Werkt perfect op desktop, tablet en mobiel
-- **Smooth Animations** - Hover effecten en transitions
-- **Interactive Elements** - Klikbare film posters en knoppen
+- **Modern Design** - Dark cinematic theme with orange accents
+- **Responsive Layout** - Works perfectly on desktop, tablet, and mobile
+- **Smooth Animations** - Hover effects and transitions using Framer Motion
+- **Interactive Elements** - Clickable movie posters and buttons
 
-### 🔍 Zoek & Filter
-- **Zoek Functionaliteit** - Zoek op titel of regisseur
-- **Genre Filters** - Filter op film genre
-- **Rating Filters** - Minimum rating instellen
-- **Duration Filters** - Maximum filmduur instellen
+### 🔍 Search & Filter
+- **Search Functionality** - Search by title or director
+- **Genre Filters** - Filter by movie genre
+- **Rating Filters** - Set minimum rating
+- **Duration Filters** - Set maximum movie duration
 
-### 🎥 Film Details
+### 🎥 Movie Details
 - **Trailer Modal** - YouTube trailers in fullscreen modal
-- **Streaming Platforms** - Direct zien waar films te streamen zijn
-- **Cast & Crew Info** - Regisseur en hoofdcast details
-- **Film Metadata** - Rating, jaar, duur en genres
+- **Streaming Platforms** - Directly see where movies are available to stream
+- **Cast & Crew Info** - Director and main cast details
+- **Movie Metadata** - Rating, year, duration, and genres
 
 ### 👤 User Experience
-- **Authentication** - Supabase Auth voor login/register
-- **Reviews Systeem** - Schrijf en lees film reviews
-- **Contact Form** - Neem contact op via Formspree
-- **LocalStorage** - Data blijft bewaard tussen sessies
+- **Authentication** - Supabase Auth for login/register
+- **Review System** - Write and read movie reviews
+- **Contact Form** - Contact us via Formspree
+- **LocalStorage** - Data persists between sessions
 
-## 🚀 Quick Start
+## 🎥 Demo
+
+### 📱 Screenshots
+
+#### Homepage
+![CineVault Homepage](./public/screenshots/homepage.png)
+
+#### Movies Overview
+![Movies Page](./public/screenshots/movies.png)
+
+#### Movie Details
+![Movie Detail Page](./public/screenshots/movie-detail.png)
+
+#### Watchlist
+![Watchlist Page](./public/screenshots/watchlist.png)
+
+### 📹 Live Demo
+> **Note**: Add a link to your live demo here once deployed.
+
+### 🎬 How to Take Screenshots
+To add screenshots to your README:
+
+1. **Take screenshots** of your main pages:
+   - Homepage (hero section)
+   - Movies listing page
+   - Individual movie detail page
+   - Watchlist page
+   - Any other important features
+
+2. **Save them** in the `public/screenshots/` directory:
+   ```bash
+   # Example filenames:
+   homepage.png
+   movies.png
+   movie-detail.png
+   watchlist.png
+   ```
+
+3. **Update the paths** in this README to match your actual screenshot filenames
+
+4. **Recommended screenshot dimensions**: 1200x800px or 1600x900px for best quality
+
+## 🚀 Installation
 
 ### Prerequisites
-- Node.js 18+ 
-- npm of yarn
-- Git
 
-### Installation
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 18.0.0 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [yarn](https://yarnpkg.com/)
+- [Git](https://git-scm.com/)
 
-1. **Clone de repository**
-```bash
-git clone https://github.com/yourusername/cinevault.git
-cd cinevault
+### Step-by-Step Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/eigen-film-website.git
+   cd eigen-film-website/cinematic-craft
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   # Create a .env file in the root directory
+   cp .env.example .env
+   ```
+   
+   Fill in your environment variables:
+   ```env
+   # Supabase (for authentication)
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   
+   # Formspree (for contact form)
+   VITE_FORMSPREE_ID=your_formspree_id
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173` to see your application running.
+
+## 💻 Usage
+
+### Basic Usage
+
+Once the application is running, you can:
+
+1. **Browse Movies**: Navigate to the Movies page to see all available films
+2. **Search**: Use the search bar to find specific movies
+3. **Filter**: Apply genre, rating, or duration filters
+4. **Add to Watchlist**: Click the bookmark icon to save movies
+5. **Watch Trailers**: Click on movie posters to view trailers
+6. **Read Reviews**: Browse and write movie reviews
+
+### Code Examples
+
+#### Adding a Movie to Watchlist
+```typescript
+import { useWatchlist } from '../hooks/useWatchlist';
+
+const MovieCard = ({ movie }) => {
+  const { addToWatchlist, removeFromWatchlist, isInWatchlist } = useWatchlist();
+  
+  const handleToggleWatchlist = () => {
+    if (isInWatchlist(movie.id)) {
+      removeFromWatchlist(movie.id);
+    } else {
+      addToWatchlist(movie);
+    }
+  };
+  
+  return (
+    <button onClick={handleToggleWatchlist}>
+      {isInWatchlist(movie.id) ? 'Remove from Watchlist' : 'Add to Watchlist'}
+    </button>
+  );
+};
 ```
 
-2. **Installeer dependencies**
-```bash
-npm install
+#### Searching Movies
+```typescript
+import { useState } from 'react';
+import { searchMovies } from '../services/tmdb';
+
+const SearchComponent = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  
+  const handleSearch = async (searchQuery: string) => {
+    if (searchQuery.trim()) {
+      const searchResults = await searchMovies(searchQuery);
+      setResults(searchResults);
+    }
+  };
+  
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search for movies..."
+      />
+      <button onClick={() => handleSearch(query)}>Search</button>
+      
+      {results.map(movie => (
+        <div key={movie.id}>{movie.title}</div>
+      ))}
+    </div>
+  );
+};
 ```
 
-3. **Start development server**
-```bash
-npm run dev
-```
-
-4. **Open in browser**
-```
-http://localhost:5173
-```
-
-## 📁 Project Structuur
+## 📁 Project Structure
 
 ```
 cinematic-craft/
-├── public/
-│   ├── favicon.svg          # Custom film-themed favicon
-│   └── placeholder.svg      # Placeholder voor film posters
+├── public/                    # Static assets
+│   ├── favicon.svg           # Custom film-themed favicon
+│   ├── placeholder.svg       # Placeholder for movie posters
+│   └── audio/               # Audio files
 ├── src/
-│   ├── components/
-│   │   ├── ui/             # Shadcn/ui componenten
-│   │   ├── Navbar.tsx      # Navigatie component
-│   │   └── Footer.tsx      # Footer component
-│   ├── pages/
-│   │   ├── Index.tsx       # Homepage met hero video
-│   │   ├── Movies.tsx      # Alle films overzicht
-│   │   ├── MovieDetail.tsx # Individuele film pagina
-│   │   ├── Recommendations.tsx # Slimme aanbevelingen
-│   │   ├── Watchlist.tsx   # Persoonlijke watchlist
-│   │   ├── Reviews.tsx     # Film reviews systeem
-│   │   ├── Account.tsx     # User authentication
-│   │   ├── Contact.tsx     # Contact formulier
-│   │   └── Search.tsx      # Zoek resultaten
-│   ├── data/
-│   │   └── movies.ts       # Film database (50+ films)
-│   ├── lib/
-│   │   ├── supabaseClient.ts # Supabase configuratie
-│   │   └── utils.ts        # Utility functies
-│   ├── hooks/              # Custom React hooks
-│   ├── services/           # API services
-│   ├── App.tsx            # Main app component
-│   ├── main.tsx           # Entry point
-│   └── index.css          # Global styles
-├── package.json
-├── tailwind.config.ts     # Tailwind configuratie
-├── vite.config.ts         # Vite configuratie
-└── README.md             # Deze file
+│   ├── components/           # React components
+│   │   ├── ui/              # Shadcn/ui components
+│   │   ├── Navbar.tsx       # Navigation component
+│   │   ├── Footer.tsx       # Footer component
+│   │   ├── CinematicIntro.tsx # Hero section component
+│   │   └── AddMovieForm.tsx # Movie addition form
+│   ├── pages/                # Page components
+│   │   ├── Index.tsx        # Homepage with hero video
+│   │   ├── Movies.tsx       # All movies overview
+│   │   ├── MovieDetail.tsx  # Individual movie page
+│   │   ├── Recommendations.tsx # Smart recommendations
+│   │   ├── Watchlist.tsx    # Personal watchlist
+│   │   ├── Reviews.tsx      # Movie review system
+│   │   ├── Account.tsx      # User authentication
+│   │   ├── Contact.tsx      # Contact form
+│   │   └── Search.tsx       # Search results
+│   ├── data/                 # Data files
+│   │   └── movies.ts        # Movie database (50+ movies)
+│   ├── lib/                  # Utility libraries
+│   │   ├── supabaseClient.ts # Supabase configuration
+│   │   └── utils.ts         # Utility functions
+│   ├── hooks/                # Custom React hooks
+│   │   ├── use-mobile.tsx   # Mobile detection hook
+│   │   └── use-toast.ts     # Toast notification hook
+│   ├── services/             # API services
+│   │   └── tmdb.ts          # TMDb API integration
+│   ├── App.tsx              # Main app component
+│   ├── main.tsx             # Entry point
+│   ├── App.css              # Global styles
+│   └── index.css            # Tailwind CSS imports
+├── package.json              # Dependencies and scripts
+├── tailwind.config.ts       # Tailwind configuration
+├── vite.config.ts           # Vite configuration
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # This file
 ```
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **React 18** - Moderne UI library
-- **TypeScript** - Type-safe development
-- **Vite** - Snelle build tool
-- **React Router** - Client-side routing
+### Frontend Framework
+- **React 18.3.1** - Modern UI library with hooks
+- **TypeScript 5.5.3** - Type-safe development
+- **Vite 5.4.1** - Fast build tool and dev server
 
 ### Styling & UI
-- **Tailwind CSS** - Utility-first CSS framework
-- **Shadcn/ui** - Moderne UI componenten
-- **Lucide React** - Icon library
-- **Framer Motion** - Smooth animations
+- **Tailwind CSS 3.4.11** - Utility-first CSS framework
+- **Shadcn/ui** - Modern, accessible UI components
+- **Lucide React 0.462.0** - Beautiful icon library
+- **Framer Motion 12.23.12** - Smooth animations
 
-### State Management
+### State Management & Data
 - **React Hooks** - useState, useEffect, useContext
-- **LocalStorage** - Persistente data opslag
-- **Supabase** - Authentication en database
+- **LocalStorage** - Persistent data storage
+- **Supabase 2.53.0** - Authentication and database
+- **React Query 5.56.2** - Data fetching and caching
 
 ### Development Tools
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **TypeScript** - Type checking
+- **ESLint 9.9.0** - Code linting and quality
+- **TypeScript 5.5.3** - Static type checking
+- **PostCSS 8.4.47** - CSS processing
+- **Autoprefixer 10.4.20** - CSS vendor prefixes
 
-## 🎨 Design System
-
-### Kleuren
-- **Primary**: Film oranje (`#ff6b35`)
-- **Background**: Donkere cinema thema
-- **Text**: Wit en grijze tinten
-- **Accents**: Gouden/oranje highlights
-
-### Typography
-- **Font**: Inter (modern, readable)
-- **Headings**: Bold met gradient effecten
-- **Body**: Clean en leesbaar
-
-### Components
-- **Cards**: Gradient achtergronden met hover effecten
-- **Buttons**: Rounded met smooth transitions
-- **Modals**: Fullscreen overlays voor trailers
-- **Badges**: Genre en streaming platform tags
-
-## 🔧 Configuration
+## ⚙️ Configuration
 
 ### Environment Variables
+
+Create a `.env` file in the root directory:
+
 ```env
-# Supabase (voor authentication)
-VITE_SUPABASE_URL=your_supabase_url
+# Supabase Configuration
+VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-# Formspree (voor contact form)
+# Formspree Configuration
 VITE_FORMSPREE_ID=your_formspree_id
+
+# TMDb API (optional)
+VITE_TMDB_API_KEY=your_tmdb_api_key
 ```
 
-### Tailwind Config
+### Tailwind Configuration
+
 ```typescript
 // tailwind.config.ts
-module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
         primary: "hsl(15 85% 55%)",
-        // ... andere custom kleuren
-      }
-    }
-  }
-}
+        secondary: "hsl(0 0% 100%)",
+        background: "hsl(0 0% 3.9%)",
+        foreground: "hsl(0 0% 98%)",
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config
 ```
 
-## 📱 Responsive Design
+### Vite Configuration
 
-### Breakpoints
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+```typescript
+// vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
-### Features per Device
-- **Mobile**: Touch-optimized, swipe gestures
-- **Tablet**: Hybrid layout, touch + mouse
-- **Desktop**: Full feature set, hover effects
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    open: true,
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+  },
+})
+```
 
 ## 🚀 Deployment
 
-### Vercel (Aanbevolen)
-```bash
-npm run build
-vercel --prod
-```
+### Vercel (Recommended)
+
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy**
+   ```bash
+   npm run build
+   vercel --prod
+   ```
 
 ### Netlify
-```bash
-npm run build
-# Upload dist/ folder naar Netlify
-```
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to Netlify**
+   - Drag and drop the `dist/` folder to Netlify
+   - Or connect your GitHub repository for automatic deployments
 
 ### GitHub Pages
-```bash
-npm run build
-# Push dist/ naar gh-pages branch
-```
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to GitHub Pages**
+   ```bash
+   # Add this to package.json scripts
+   "deploy": "gh-pages -d dist"
+   
+   # Then run
+   npm run deploy
+   ```
 
 ## 🤝 Contributing
 
-1. Fork de repository
-2. Maak een feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit je changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push naar de branch (`git push origin feature/AmazingFeature`)
-5. Open een Pull Request
+We welcome contributions! Please follow these steps:
 
-## 📝 License
+### 1. Fork the Repository
+```bash
+git clone https://github.com/yourusername/eigen-film-website.git
+cd eigen-film-website
+```
 
-Dit project is gelicenseerd onder de MIT License - zie [LICENSE](LICENSE) file voor details.
+### 2. Create a Feature Branch
+```bash
+git checkout -b feature/AmazingFeature
+# or
+git checkout -b fix/BugFix
+```
+
+### 3. Make Your Changes
+- Write clean, readable code
+- Follow the existing code style
+- Add tests if applicable
+- Update documentation as needed
+
+### 4. Commit Your Changes
+```bash
+git add .
+git commit -m 'Add: AmazingFeature description'
+```
+
+### 5. Push and Create Pull Request
+```bash
+git push origin feature/AmazingFeature
+```
+
+### 6. Code Style Guidelines
+- Use TypeScript for all new code
+- Follow ESLint rules
+- Use Prettier for formatting
+- Write meaningful commit messages
+
+## 🔧 Troubleshooting
+
+### Common Issues and Solutions
+
+#### 1. Build Errors
+**Problem**: `npm run build` fails
+**Solution**: 
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+#### 2. Development Server Won't Start
+**Problem**: Port 5173 is already in use
+**Solution**:
+```bash
+# Kill the process using the port
+npx kill-port 5173
+# Or change the port in vite.config.ts
+```
+
+#### 3. TypeScript Errors
+**Problem**: TypeScript compilation errors
+**Solution**:
+```bash
+# Check TypeScript configuration
+npx tsc --noEmit
+# Fix type issues or update types
+```
+
+#### 4. Styling Issues
+**Problem**: Tailwind CSS not working
+**Solution**:
+```bash
+# Rebuild Tailwind CSS
+npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
+```
+
+#### 5. Environment Variables Not Loading
+**Problem**: Environment variables undefined
+**Solution**:
+- Ensure `.env` file is in the root directory
+- Restart the development server
+- Check that variables start with `VITE_`
+
+### Performance Issues
+
+#### 1. Slow Build Times
+- Use `npm run build:dev` for development builds
+- Consider using `--mode development` flag
+
+#### 2. Large Bundle Size
+- Analyze bundle with `npm run build && npx vite-bundle-analyzer`
+- Implement code splitting for routes
+- Use dynamic imports for heavy components
+
+## 📝 Changelog
+
+### [Unreleased]
+- New features in development
+- Bug fixes and improvements
+
+### [0.1.0] - 2024-01-XX
+#### Added
+- Initial project setup with React + TypeScript + Vite
+- Basic movie browsing functionality
+- Watchlist management system
+- User authentication with Supabase
+- Responsive design with Tailwind CSS
+- Movie search and filtering
+- Trailer modal functionality
+- Review system
+- Contact form integration
+
+#### Changed
+- Updated to React 18.3.1
+- Upgraded TypeScript to 5.5.3
+- Enhanced UI components with Shadcn/ui
+
+#### Fixed
+- Mobile responsiveness issues
+- Authentication flow bugs
+- Search functionality improvements
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2024 Eigen Film
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ## 🙏 Acknowledgments
 
-- **TMDb** - Voor film posters en metadata
-- **YouTube** - Voor film trailers
-- **Supabase** - Voor authentication
-- **Shadcn/ui** - Voor UI componenten
-- **Tailwind CSS** - Voor styling framework
+- **TMDb** - For movie posters and metadata
+- **YouTube** - For movie trailers
+- **Supabase** - For authentication and database services
+- **Shadcn/ui** - For beautiful UI components
+- **Tailwind CSS** - For the utility-first CSS framework
+- **Vite** - For the fast build tool
+- **React Team** - For the amazing React library
 
 ## 📞 Support
 
-Voor vragen of support:
-- **Email**: rochellemannie2003@outlook.com
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/cinevault/issues)
+Need help? Here's how to get support:
+
+### 📧 Email Support
+- **General Inquiries**: rochellemannie2003@outlook.com
+- **Technical Support**: rochellemannie2003@outlook.com
+
+### 🐛 Bug Reports
+- Create an issue on [GitHub Issues](https://github.com/yourusername/eigen-film-website/issues)
+- Include detailed steps to reproduce the problem
+- Add screenshots if applicable
+
+### 💡 Feature Requests
+- Use the [GitHub Issues](https://github.com/yourusername/eigen-film-website/issues) page
+- Describe the feature and its benefits
+- Consider contributing the feature yourself
+
+### 📚 Documentation
+- Check this README first
+- Review the code comments
+- Look at existing issues for similar problems
 
 ---
 
-**Gemaakt met ❤️ voor film liefhebbers wereldwijd** 🎬✨
+**Made with ❤️ for movie lovers worldwide** 🎬✨
+
+*If you find this project helpful, please give it a ⭐ on GitHub!*

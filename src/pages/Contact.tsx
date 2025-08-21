@@ -1,63 +1,107 @@
-import { useState } from "react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+// ========================================
+// CONTACT PAGINA
+// ========================================
+// Deze pagina laat bezoekers contact opnemen met de website eigenaar
+// Het heeft een contactformulier en stuurt emails via Formspree
 
+// Importeer alle benodigde React onderdelen
+import { useState } from "react"; // Voor het beheren van formulier data
+import { Navbar } from "@/components/Navbar"; // De navigatiebalk bovenaan
+import { Footer } from "@/components/Footer"; // De footer onderaan
+import { Button } from "@/components/ui/button"; // Knoppen voor de interface
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // Kaarten voor mooie layout
+import { Input } from "@/components/ui/input"; // Tekst invoervelden
+import { Textarea } from "@/components/ui/textarea"; // Grotere tekstvelden
+import { Mail, Phone, MapPin, Send } from "lucide-react"; // Iconen voor contact informatie
+import { useToast } from "@/hooks/use-toast"; // Voor pop-up berichten
+
+// ========================================
+// HOOFDCOMPONENT
+// ========================================
 const Contact = () => {
-  const { toast } = useToast();
+  // ========================================
+  // TOAST HOOK (VOOR POP-UP BERICHTEN)
+  // ========================================
+  const { toast } = useToast(); // Voor het tonen van succes/fout berichten
+
+  // ========================================
+  // STATE MANAGEMENT (FORMULIER DATA)
+  // ========================================
+  // form bevat alle informatie die de gebruiker invult
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
+    name: "",      // Naam van de gebruiker
+    email: "",     // Email van de gebruiker
+    subject: "",   // Onderwerp van het bericht
+    message: ""    // Het bericht zelf
   });
 
+  // ========================================
+  // FORMULIER VERZENDEN FUNCTIE
+  // ========================================
+  // Deze functie wordt aangeroepen wanneer de gebruiker het contactformulier verstuurt
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Voorkom dat de pagina herlaadt
     
     try {
-      // Send to Formspree
+      // ========================================
+      // EMAIL VERZENDEN VIA FORMSPREE
+      // ========================================
+      // Stuur de data naar Formspree (email service)
       const response = await fetch('https://formspree.io/f/mjkopljp', {
-        method: 'POST',
+        method: 'POST', // Verstuur data
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // Vertel dat we JSON sturen
         },
         body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          subject: form.subject,
-          message: form.message,
-          _replyto: form.email,
-          _subject: `Contact: ${form.subject}`,
+          name: form.name,                    // Naam van de afzender
+          email: form.email,                  // Email van de afzender
+          subject: form.subject,              // Onderwerp van het bericht
+          message: form.message,              // Het bericht zelf
+          _replyto: form.email,              // Email voor antwoord
+          _subject: `Contact: ${form.subject}`, // Onderwerp voor de email
         }),
       });
 
+      // ========================================
+      // SUCCES AFHANDELING
+      // ========================================
       if (response.ok) {
+        // Toon succesbericht aan gebruiker
         toast({
           title: "Bericht verzonden!",
           description: "Je bericht is succesvol verzonden naar rochellemannie2003@outlook.com",
         });
         
+        // ========================================
+        // FORMULIER RESETTEN
+        // ========================================
+        // Maak alle velden weer leeg voor een nieuw bericht
         setForm({ name: "", email: "", subject: "", message: "" });
       } else {
+        // ========================================
+        // FOUT AFHANDELING
+        // ========================================
         throw new Error('Failed to send message');
       }
     } catch (error) {
+      // ========================================
+      // CATCH ALLE FOUTEN
+      // ========================================
+      // Als er iets mis gaat, toon een foutmelding
       toast({
         title: "Fout bij verzenden",
         description: "Er is iets misgegaan. Probeer het later opnieuw.",
-        variant: "destructive",
+        variant: "destructive", // Rode foutmelding
       });
     }
   };
 
+  // ========================================
+  // INPUT VERANDERING FUNCTIE
+  // ========================================
+  // Deze functie wordt aangeroepen wanneer de gebruiker iets typt in een veld
   const handleInputChange = (field: string, value: string) => {
-    setForm(prev => ({ ...prev, [field]: value }));
+    setForm(prev => ({ ...prev, [field]: value })); // Update alleen het gewijzigde veld
   };
 
   return (
